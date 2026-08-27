@@ -86,6 +86,44 @@ The repository organizes this period as twelve monthly editions:
 
 Across those twelve monthly editions, the production archive represents **16 physical PC World companion CDs**.
 
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Aug_2005/Screenshot%202026-08-26%20052744.png" alt="PC World">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/Screenshot%202026-08-26%20052210.png" alt="PC World">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD2/Screenshot%202026-08-26%20045601.png" alt="PC World">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/Screenshot%202026-08-26%20031653.png" alt="PC World">
+
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20025915.png" alt="PC World">
+
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Apr_2005/Screenshot%202026-08-26%20025201.png" alt="PC World">
+
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mar_2005/bandicam%202026-08-27%2002-48-35-624.jpg" alt="PC World">
+
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Feb_2005/Screenshot%202026-08-26%20024137.png" alt="PC World">
+
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jan_2005/Screenshot%202026-08-26%20023749.png" alt="PC World">
+
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Dec_2004/Screenshot%202026-08-26%20020055.png" alt="PC World">
+
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Nov_2004/Screenshot%202026-08-26%20011409.png" alt="PC World">
+
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Oct_2004/ezgif-37e9f571da6a9b64.gif" alt="PC World">
+
+
+
+
+
+
 ---
 
 # Technical overview
@@ -403,6 +441,8 @@ This is essentially a small content database represented by files and directory 
 ## 6. The CD Maker / "Generator Matrita"
 
 The generator is one of the most important parts of this repository.
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/intro.png">
 
 A preserved project identifies it as:
 
