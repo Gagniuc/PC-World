@@ -370,6 +370,7 @@ The text shown by the panel is generated dynamically. Among other information, t
 The system-information text is assembled by `GetSysInfo()` and then passed to the neon renderer.
 
 This small component illustrates the general design philosophy of the project: even apparently decorative elements of the interface were often implemented as functional software components rather than pre-rendered graphics.
+
 ---
 
 
