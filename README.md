@@ -445,7 +445,14 @@ This is essentially a small content database represented by files and directory 
 
 The generator is one of the most important parts of this repository.
 
+
+<div align="center">
+
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/intro.png">
+
+</div>
+
+
 
 A preserved project identifies it as:
 
@@ -456,6 +463,13 @@ Executable:         Set.exe
 Historical path:    E:\MADALIN\Generator_Matrita
 Language:           Visual Basic 6.0
 ```
+
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/matrita.png">
+
+</div>
 
 The historical development path is itself a useful artifact: the project was explicitly maintained as a generator intended for the PC World production workflow. The generator accepts the material for a monthly CD and creates a directory named `Matrita`.
 
@@ -529,6 +543,13 @@ The project also contains source snapshots for `Start.exe`. The program is a bor
 ```text
 mciSendString()
 ```
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/animatie.gif" alt="PC World">
+
+</div>
+
 
 to play the intro AVI as an embedded child video. The preserved 2004 and 2005 variants show the intro for approximately **6 seconds** and **4.5 seconds**, respectively, and then launch:
 
