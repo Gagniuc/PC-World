@@ -1,8 +1,6 @@
 # PC World Romania CD Interface Archive (2004–2005)
 
-**Complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005.**
-
-This repository preserves the development history of **16 PC World CD-ROMs produced during a continuous one-year period**, together with the Visual Basic 6 source code of the interfaces and the software I wrote to generate the monthly CD structure.
+**Complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005.** This repository preserves the development history of **16 PC World CD-ROMs produced during a continuous one-year period**, together with the Visual Basic 6 source code of the interfaces and the software I wrote to generate the monthly CD structure.
 
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/ban/set%20(II).png" alt="PC World | CDs">
@@ -63,11 +61,7 @@ There are many duplicated or slightly different source trees because this was a 
 
 ## Time span
 
-The preserved monthly sequence runs from:
-
-**October 2004 → September 2005**
-
-The repository organizes this period as twelve monthly editions:
+The preserved monthly sequence runs from: **October 2004 → September 2005**. The repository organizes this period as twelve monthly editions:
 
 | Index | Edition |
 |---:|---|
@@ -89,9 +83,12 @@ Across those twelve monthly editions, the production archive represents **16 phy
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Aug_2005/Screenshot%202026-08-26%20052744.png" alt="PC World">
 
+
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/Screenshot%202026-08-26%20052210.png" alt="PC World">
 
+
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD2/Screenshot%202026-08-26%20045601.png" alt="PC World">
+
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/Screenshot%202026-08-26%20031653.png" alt="PC World">
 
@@ -118,9 +115,6 @@ Across those twelve monthly editions, the production archive represents **16 phy
 
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Oct_2004/ezgif-37e9f571da6a9b64.gif" alt="PC World">
-
-
-
 
 
 
@@ -202,9 +196,7 @@ Company metadata:    www.NovusOrdo.ro
 Copyright metadata:  Paul Gagniuc
 ```
 
-The main application is a custom-skinned desktop shell rather than a conventional Windows form.
-
-Its interface contains the main software categories:
+The main application is a custom-skinned desktop shell rather than a conventional Windows form. Its interface contains the main software categories:
 
 ```text
 UT  = Utilitare
@@ -246,9 +238,7 @@ PC_World\
                     └── Aplicatie.exe
 ```
 
-Equivalent structures are generated for `MM`, `JC`, `IN`, `AV`, and `PR`.
-
-The application also creates/uses `C:\PC_World` as a local working/copy destination.
+Equivalent structures are generated for `MM`, `JC`, `IN`, `AV`, and `PR`. The application also creates/uses `C:\PC_World` as a local working/copy destination.
 
 ---
 
@@ -260,9 +250,7 @@ The monthly menus are not hard-coded into a separately compiled executable. Inst
 aferent\biohazard.zulu
 ```
 
-Despite the intentionally playful filename, the preserved implementation is essentially a tag-delimited manifest.
-
-Its structure includes blocks such as:
+Despite the intentionally playful filename, the preserved implementation is essentially a tag-delimited manifest. Its structure includes blocks such as:
 
 ```text
 [MENIURI]
@@ -302,27 +290,19 @@ Its structure includes blocks such as:
 [Rupere-de-nori-STOP]
 ```
 
-At startup, `CD.exe` reads the entire file in binary mode and then parses it with `InStr`, `Mid`, `Replace`, and the section delimiters above.
-
-This allowed the same compiled `CD.exe` engine to be reused from one month to another while changing the software list and descriptions through generated data.
-
-The generator also produces:
+At startup, `CD.exe` reads the entire file in binary mode and then parses it with `InStr`, `Mid`, `Replace`, and the section delimiters above. This allowed the same compiled `CD.exe` engine to be reused from one month to another while changing the software list and descriptions through generated data. The generator also produces:
 
 ```text
 biohazard.gama
 ```
 
-from the `Activat()` feature array. It stores disabled/selected feature indexes as compact metadata and is preserved as part of the generated template system.
-
-One practical consequence of this home-grown format is visible in the generator validation code: characters such as `[`, `]`, `'`, `"`, `#`, and `|` are rejected in certain text fields because they could collide with the internal delimiters.
+from the `Activat()` feature array. It stores disabled/selected feature indexes as compact metadata and is preserved as part of the generated template system. One practical consequence of this home-grown format is visible in the generator validation code: characters such as `[`, `]`, `'`, `"`, `#`, and `|` are rejected in certain text fields because they could collide with the internal delimiters.
 
 ---
 
 ## 3. Hybrid native/HTML interface
 
-The project mixes native VB6 controls with local HTML.
-
-The main application embeds the Microsoft WebBrowser/Internet Explorer COM engine and loads local files such as:
+The project mixes native VB6 controls with local HTML. The main application embeds the Microsoft WebBrowser/Internet Explorer COM engine and loads local files such as:
 
 ```text
 aferent\Intrare.htm
@@ -332,19 +312,13 @@ aferent\Drivere.htm
 aferent\Revista.htm
 ```
 
-This was useful because substantial presentation content could be changed every month without recompiling the core executable.
-
-A class named `Preia_HTML.cls` / `Extrage_HTM` binds HTML DOM elements to Visual Basic event handlers. In preserved code, elements with IDs such as `Paul1`, `Paul2`, etc. are obtained from the browser document and their click events are redirected back into VB6 functions.
-
-So the application is not simply "a VB6 form containing web pages." It is a hybrid interface in which HTML is used as a presentation layer and VB6 remains the application/control layer.
+This was useful because substantial presentation content could be changed every month without recompiling the core executable. A class named `Preia_HTML.cls` / `Extrage_HTM` binds HTML DOM elements to Visual Basic event handlers. In preserved code, elements with IDs such as `Paul1`, `Paul2`, etc. are obtained from the browser document and their click events are redirected back into VB6 functions. So the application is not simply "a VB6 form containing web pages." It is a hybrid interface in which HTML is used as a presentation layer and VB6 remains the application/control layer.
 
 ---
 
 ## 4. Custom graphics engine and controls
 
-The interface contains a surprisingly large amount of graphics code for a magazine CD launcher.
-
-Important components include:
+The interface contains a surprisingly large amount of graphics code for a magazine CD launcher. Important components include:
 
 ```text
 Buton_3D.ctl       custom graphical button control
@@ -357,24 +331,14 @@ PNG.bas            image-related helper code
 Transparenta.bas   transparency/visual effects
 ```
 
-The GIF code supports frame loading, palettes, transparent colors, delays and animated playback. The underlying DIB implementation calls Win32 GDI functions such as `CreateDIBSection`, `BitBlt`, `StretchBlt`, `SetDIBColorTable`, and `GetDIBColorTable`.
-
-The custom button control contains its own hover/pressed rendering, transparency, bevel effects, XP-style rendering, optional sound and picture states.
-
-The result is the characteristic PC World "hardware console" interface visible in the archived screenshots: metallic panels, custom buttons, rotary/switch-like controls, a circular capture monitor, animated graphics, an LED-style status display and a fully skinned window with no standard Windows chrome.
+The GIF code supports frame loading, palettes, transparent colors, delays and animated playback. The underlying DIB implementation calls Win32 GDI functions such as `CreateDIBSection`, `BitBlt`, `StretchBlt`, `SetDIBColorTable`, and `GetDIBColorTable`. The custom button control contains its own hover/pressed rendering, transparency, bevel effects, XP-style rendering, optional sound and picture states. The result is the characteristic PC World "hardware console" interface visible in the archived screenshots: metallic panels, custom buttons, rotary/switch-like controls, a circular capture monitor, animated graphics, an LED-style status display and a fully skinned window with no standard Windows chrome.
 
 ---
 
 
 ## The scrolling neon information display
 
-One of the distinctive visual elements of the PC World interface is the red **neon/LED-style scrolling information panel** displayed above the main application.
-
-This is not a static image or a conventional scrolling Label control. The effect is rendered programmatically by the application.
-
-The implementation is contained primarily in `Mesagerie.frm`, where the `DrawNeon()` routine converts ordinary rendered text into a pixel-based display using separate graphical states for illuminated and non-illuminated cells. The resulting matrix is then shifted horizontally to produce the scrolling electronic-display effect.
-
-Conceptually, the rendering pipeline is:
+One of the distinctive visual elements of the PC World interface is the red **neon/LED-style scrolling information panel** displayed above the main application. This is not a static image or a conventional scrolling Label control. The effect is rendered programmatically by the application. The implementation is contained primarily in `Mesagerie.frm`, where the `DrawNeon()` routine converts ordinary rendered text into a pixel-based display using separate graphical states for illuminated and non-illuminated cells. The resulting matrix is then shifted horizontally to produce the scrolling electronic-display effect. Conceptually, the rendering pipeline is:
 
 ```text
 text message
@@ -405,9 +369,7 @@ The text shown by the panel is generated dynamically. Among other information, t
 - status/information concerning the current PC World edition;
 - location of the emergency HTML backup interface.
 
-The system-information text is assembled by `GetSysInfo()` and then passed to the neon renderer.
-
-This small component illustrates the general design philosophy of the project: even apparently decorative elements of the interface were often implemented as functional software components rather than pre-rendered graphics.
+The system-information text is assembled by `GetSysInfo()` and then passed to the neon renderer. This small component illustrates the general design philosophy of the project: even apparently decorative elements of the interface were often implemented as functional software components rather than pre-rendered graphics.
 
 ---
 
@@ -454,9 +416,7 @@ Historical path:    E:\MADALIN\Generator_Matrita
 Language:           Visual Basic 6.0
 ```
 
-The historical development path is itself a useful artifact: the project was explicitly maintained as a generator intended for the PC World production workflow.
-
-The generator accepts the material for a monthly CD and creates a directory named `Matrita`.
+The historical development path is itself a useful artifact: the project was explicitly maintained as a generator intended for the PC World production workflow. The generator accepts the material for a monthly CD and creates a directory named `Matrita`.
 
 ### Its build process includes
 
@@ -480,11 +440,7 @@ The generator accepts the material for a monthly CD and creates a directory name
 18. copying the application executable;
 19. writing/copying `AUTORUN.INF`.
 
-The resulting directory tree was then suitable for the final CD production/burning stage.
-
-The generator also includes preview forms, capture forms, folder browsing, graphics handling, HTML generation, GIF support and a custom interface button editor.
-
-This was the component I created so that the monthly edition could, in principle, be assembled by filling in the content rather than manually reproducing the entire CD structure every time.
+The resulting directory tree was then suitable for the final CD production/burning stage. The generator also includes preview forms, capture forms, folder browsing, graphics handling, HTML generation, GIF support and a custom interface button editor. This was the component I created so that the monthly edition could, in principle, be assembled by filling in the content rather than manually reproducing the entire CD structure every time.
 
 ---
 
@@ -496,9 +452,7 @@ The generator keeps reusable material under a directory named:
 Geneza\
 ```
 
-"Geneza" is effectively the source template from which a monthly `Matrita` is created.
-
-Preserved template contents include:
+"Geneza" is effectively the source template from which a monthly `Matrita` is created. Preserved template contents include:
 
 ```text
 Geneza\
@@ -518,9 +472,7 @@ Geneza\
 └── dep\
 ```
 
-The `dep` directory contains runtime dependencies and the two fonts used by the interface.
-
-The name distinction is therefore useful:
+The `dep` directory contains runtime dependencies and the two fonts used by the interface. The name distinction is therefore useful:
 
 ```text
 Geneza  = reusable source/template material
@@ -531,25 +483,19 @@ Matrita = generated monthly CD structure
 
 ## 8. Startup animation — `Start.exe`
 
-The project also contains source snapshots for `Start.exe`.
-
-The program is a borderless VB6 window that uses the Windows Multimedia API:
+The project also contains source snapshots for `Start.exe`. The program is a borderless VB6 window that uses the Windows Multimedia API:
 
 ```text
 mciSendString()
 ```
 
-to play the intro AVI as an embedded child video.
-
-The preserved 2004 and 2005 variants show the intro for approximately **6 seconds** and **4.5 seconds**, respectively, and then launch:
+to play the intro AVI as an embedded child video. The preserved 2004 and 2005 variants show the intro for approximately **6 seconds** and **4.5 seconds**, respectively, and then launch:
 
 ```text
 CD.exe
 ```
 
-The source also converts the AVI path to an old-style DOS short filename through `GetShortPathName`, which avoided path/space problems common in multimedia code of that period.
-
-The August 2005 `AUTORUN.INF` preserved in the archive contains:
+The source also converts the AVI path to an old-style DOS short filename through `GetShortPathName`, which avoided path/space problems common in multimedia code of that period. The August 2005 `AUTORUN.INF` preserved in the archive contains:
 
 ```ini
 [AUTORUN]
@@ -565,9 +511,7 @@ Thus the user experience was designed to begin with the animated intro before en
 
 `Control.exe` is a small hidden helper application.
 
-Its source is only a few dozen lines long, but its purpose is interesting: it implements a primitive watchdog/fallback mechanism.
-
-It waits roughly **22 seconds** and examines:
+Its source is only a few dozen lines long, but its purpose is interesting: it implements a primitive watchdog/fallback mechanism. It waits roughly **22 seconds** and examines:
 
 ```text
 C:\PC_World\control.evolutie
@@ -587,17 +531,13 @@ If the expected success state is not detected, `Control.exe` opens:
 aferent\BackUp.htm
 ```
 
-as a fallback.
-
-The exact bootstrap relationship between `Start.exe` and `Control.exe` changed between archived snapshots, and not every historical source folder is synchronized with every final CD binary. That is why the repository preserves the variants instead of pretending there was a single immutable bootstrap implementation.
+as a fallback. The exact bootstrap relationship between `Start.exe` and `Control.exe` changed between archived snapshots, and not every historical source folder is synchronized with every final CD binary. That is why the repository preserves the variants instead of pretending there was a single immutable bootstrap implementation.
 
 ---
 
 ## 10. Audio and voice feedback
 
-The interface includes a substantial set of WAV files, including interaction sounds and spoken feedback.
-
-Examples preserved in the template include:
+The interface includes a substantial set of WAV files, including interaction sounds and spoken feedback. Examples preserved in the template include:
 
 ```text
 Buton.wav
@@ -616,17 +556,13 @@ voce\
 └── ...
 ```
 
-The application can enable/disable interface sound, play a looping monthly background track and trigger voice feedback for operations such as installation, copying, reading and running software.
-
-Some of the audio control is routed through tiny local HTML files loaded into hidden browser controls, another example of the hybrid VB6/HTML architecture.
+The application can enable/disable interface sound, play a looping monthly background track and trigger voice feedback for operations such as installation, copying, reading and running software. Some of the audio control is routed through tiny local HTML files loaded into hidden browser controls, another example of the hybrid VB6/HTML architecture.
 
 ---
 
 ## 11. Built-in network tools
 
-The PC World interface was not merely a graphical menu used to launch installers. Over time it evolved into a **self-contained Windows utility suite**, providing several tools that could be used directly from the CD interface.
-
-Among the functionality preserved in the source code are:
+The PC World interface was not merely a graphical menu used to launch installers. Over time it evolved into a **self-contained Windows utility suite**, providing several tools that could be used directly from the CD interface. Among the functionality preserved in the source code are:
 
 - **Ping / response-time testing** for remote hosts;
 - **IP and local-network scanning**;
@@ -637,11 +573,7 @@ Among the functionality preserved in the source code are:
 - an integrated **HTTP server**;
 - the ability to expose and browse CD content over a local network.
 
-One of the more unusual components was the built-in **Inter-Server**, a small HTTP server implemented directly in Visual Basic 6 using Winsock. It could listen on a configurable TCP port, process incoming HTTP requests, generate response headers, display directories and serve files from the local machine/CD.
-
-This meant that the contents of the PC World disc could effectively be made available to another computer on the same network without installing a separate web-server package.
-
-The interface therefore served two roles simultaneously:
+One of the more unusual components was the built-in **Inter-Server**, a small HTTP server implemented directly in Visual Basic 6 using Winsock. It could listen on a configurable TCP port, process incoming HTTP requests, generate response headers, display directories and serve files from the local machine/CD. This meant that the contents of the PC World disc could effectively be made available to another computer on the same network without installing a separate web-server package. The interface therefore served two roles simultaneously:
 
 ```text
 PC World CD
@@ -661,17 +593,13 @@ PC World CD
             HTTP file server
 ```
 
-These functions were integrated into the same custom graphical environment as the software catalog, rather than being separate external programs.
-
-For a magazine companion CD from 2004–2005, this made the application considerably more than an `AUTORUN` menu: it was a small **multimedia and networking shell** with its own diagnostic and content-sharing capabilities.
+These functions were integrated into the same custom graphical environment as the software catalog, rather than being separate external programs. For a magazine companion CD from 2004–2005, this made the application considerably more than an `AUTORUN` menu: it was a small **multimedia and networking shell** with its own diagnostic and content-sharing capabilities.
 
 ---
 
 ## 12. Other operating-system integration
 
-The code also demonstrates direct Win32 integration in several places.
-
-Examples include:
+The code also demonstrates direct Win32 integration in several places. Examples include:
 
 - changing the desktop wallpaper with `SystemParametersInfo`;
 - querying and manipulating the Windows taskbar/appbar;
@@ -690,9 +618,7 @@ This was therefore a native Windows application with substantial Win32 interacti
 
 # Repository organization
 
-The current repository intentionally separates historical material, monthly editions and restoration work.
-
-A simplified view is:
+The current repository intentionally separates historical material, monthly editions and restoration work. A simplified view is:
 
 ```text
 PC-World/
@@ -732,9 +658,7 @@ Two kinds of material should be distinguished.
 
 ### Original/historical material
 
-The historical sources were created for the Windows 2000/XP-era software ecosystem and use VB6, ActiveX and Internet Explorer components that were normal at that time.
-
-Historical project files reference development locations such as:
+The historical sources were created for the Windows 2000/XP-era software ecosystem and use VB6, ActiveX and Internet Explorer components that were normal at that time. Historical project files reference development locations such as:
 
 ```text
 E:\PC_februarie\
@@ -746,20 +670,14 @@ These paths are part of the original source history and have intentionally not b
 
 ### Modern restoration
 
-The `PC World (EN Win 11 - 02.08.2026)` area contains compatibility/restoration work intended to make the interface inspectable or runnable again on current Windows systems while preserving its original design.
-
-This includes an English adaptation and compatibility work around old media, fonts and VB6 dependencies.
-
-The repository also contains `font.bat`, a 2026 self-contained helper that embeds and installs the two historical fonts:
+The `PC World (EN Win 11 - 02.08.2026)` area contains compatibility/restoration work intended to make the interface inspectable or runnable again on current Windows systems while preserving its original design. This includes an English adaptation and compatibility work around old media, fonts and VB6 dependencies. The repository also contains `font.bat`, a 2026 self-contained helper that embeds and installs the two historical fonts:
 
 ```text
 B074000D.TTF  -> BankScrD
 G034000D.TTF  -> GlaserSteD
 ```
 
-The script elevates to Administrator, decodes the embedded Base64 font data, copies the fonts into the Windows Fonts directory, registers them and broadcasts `WM_FONTCHANGE`.
-
-This exists because the original program simply attempted to copy the TTF files into the Windows Fonts directory, an approach that no longer behaves the same way under modern Windows permissions and font registration rules.
+The script elevates to Administrator, decodes the embedded Base64 font data, copies the fonts into the Windows Fonts directory, registers them and broadcasts `WM_FONTCHANGE`. This exists because the original program simply attempted to copy the TTF files into the Windows Fonts directory, an approach that no longer behaves the same way under modern Windows permissions and font registration rules.
 
 ---
 
@@ -779,19 +697,13 @@ TABCTL32.OCX
 COMDLG32.OCX
 ```
 
-Some monthly CD trees preserved local copies of runtime DLLs so that the software would have a better chance of running on the wide variety of PCs owned by magazine readers.
-
-Modern Windows should not be treated like Windows XP: copying/registering old system components blindly is not recommended. For historical testing, a virtual machine or a carefully controlled 32-bit compatibility setup is preferable.
-
-The embedded WebBrowser control also depends on the legacy Internet Explorer COM architecture, so modern behavior may differ even when the VB6 executable itself runs correctly.
+Some monthly CD trees preserved local copies of runtime DLLs so that the software would have a better chance of running on the wide variety of PCs owned by magazine readers. Modern Windows should not be treated like Windows XP: copying/registering old system components blindly is not recommended. For historical testing, a virtual machine or a carefully controlled 32-bit compatibility setup is preferable. The embedded WebBrowser control also depends on the legacy Internet Explorer COM architecture, so modern behavior may differ even when the VB6 executable itself runs correctly.
 
 ---
 
 # Notes for building the VB6 sources
 
-The project is historical software, not a modern single-command build.
-
-For the closest development environment, use:
+The project is historical software, not a modern single-command build. For the closest development environment, use:
 
 ```text
 Microsoft Visual Basic 6.0
@@ -815,11 +727,7 @@ Important points:
 
 # Why there are so many variants
 
-This is deliberate.
-
-The production process existed before Git-based workflows were part of my day-to-day development. Monthly work was commonly preserved by copying whole project directories, modifying them for the next edition, and keeping backup variants.
-
-As a result, this archive contains:
+The production process existed before Git-based workflows were part of my day-to-day development. Monthly work was commonly preserved by copying whole project directories, modifying them for the next edition, and keeping backup variants. As a result, this archive contains:
 
 - files with almost identical names but different dates;
 - multiple source revisions of the same component;
@@ -836,11 +744,7 @@ For software archaeology, these inconsistencies are useful. They show how the ap
 
 # Historical significance of the project
 
-The part I consider most important is not any single VB6 trick.
-
-The project demonstrates how a complete magazine software distribution system could be built by one developer in the early 2000s using the tools available at the time.
-
-It combined:
+The part I consider most important is not any single VB6 trick. The project demonstrates how a complete magazine software distribution system could be built by one developer in the early 2000s using the tools available at the time. It combined:
 
 - a reusable runtime engine;
 - data-driven monthly menus;
@@ -855,40 +759,28 @@ It combined:
 - a fallback/watchdog mechanism;
 - a dedicated content-generation application.
 
-The main executable could remain largely unchanged while the generator produced a new monthly edition from new content. In that sense, the project had a clear separation between **engine**, **template**, **content**, and **generated distribution**.
-
-That is the main reason I am publishing the complete source archive rather than only the screenshots or executables.
+The main executable could remain largely unchanged while the generator produced a new monthly edition from new content. In that sense, the project had a clear separation between **engine**, **template**, **content**, and **generated distribution**. That is the main reason I am publishing the complete source archive rather than only the screenshots or executables.
 
 ---
 
 # A note about third-party material
 
-This repository is primarily a historical and educational software archive.
-
-The original source code written for the interface and generator is preserved together with material needed to understand the original distribution environment. The repository may also contain historical PC World artwork, Microsoft runtime components, fonts, magazine material, and third-party software packages that retain their own copyrights, trademarks and license conditions.
-
-**PC World** and related logos/branding belong to their respective rights holders. Inclusion in this archive documents the historical project and should not be interpreted as a claim of ownership over third-party brands or software.
+This repository is primarily a historical and educational software archive. The original source code written for the interface and generator is preserved together with material needed to understand the original distribution environment. The repository may also contain historical PC World artwork, Microsoft runtime components, fonts, magazine material, and third-party software packages that retain their own copyrights, trademarks and license conditions. **PC World** and related logos/branding belong to their respective rights holders. Inclusion in this archive documents the historical project and should not be interpreted as a claim of ownership over third-party brands or software.
 
 ---
 
 # Credits
 
-**Original software, CD interface, generator/template system and monthly production:**  
-**Paul A. Gagniuc**
+**Software, CD interface, template system and production: Paul A. Gagniuc**
 
-**PC World Romania coordination:**  
-**Madalin Lacraru**
+**PC World Romania coordination: Madalin Lacraru**
 
-**Original production period:**  
-**October 2004 – September 2005**
+**Original production period: October 2004 – September 2005**
 
-**Archival restoration / modern compatibility work:**  
-**2026**
+**Archival restoration / modern compatibility work: 2026**
 
 ---
 
 ## Final note
 
-For me, this repository is a snapshot of a very specific period in personal-computer history: software was still distributed physically, magazine CDs were an important way for users to discover programs, and a single CD interface had to run on an unpredictable collection of Windows machines, graphics cards, codecs and installed runtimes.
-
-What began as a casual question about distributing **Delta Memory Force V2.0** became a one-year software-production project and, eventually, this archive.
+For me, this repository is a snapshot of a very specific period in personal-computer history: software was still distributed physically, magazine CDs were an important way for users to discover programs, and a single CD interface had to run on an unpredictable collection of Windows machines, graphics cards, codecs and installed runtimes. What began as a casual question about distributing **Delta Memory Force V2.0** became a one-year software-production project and, eventually, this archive.
