@@ -132,7 +132,7 @@ implemented primarily in **Microsoft Visual Basic 6.0**.
 
 The project had two principal layers:
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/schema.png" alt="PC World">
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/schema%20(IV).png" alt="PC World">
 
 
 The historical application itself calls the CD assembly operation a **"compilation"**. Technically, the generator does not recompile the Visual Basic program every month. It performs a content/build step: it creates the directory hierarchy, generates configuration and HTML files, copies graphics and program packages, and places the already compiled runtime executables into the final `Matrita` tree.
