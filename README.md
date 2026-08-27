@@ -96,6 +96,8 @@ In modern terminology, the system was a combination of:
 
 implemented primarily in **Microsoft Visual Basic 6.0**.
 
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/VB6.gif">
+
 The project had two principal layers:
 
 ```text
@@ -324,6 +326,53 @@ The custom button control contains its own hover/pressed rendering, transparency
 The result is the characteristic PC World "hardware console" interface visible in the archived screenshots: metallic panels, custom buttons, rotary/switch-like controls, a circular capture monitor, animated graphics, an LED-style status display and a fully skinned window with no standard Windows chrome.
 
 ---
+
+
+## The scrolling neon information display
+
+One of the distinctive visual elements of the PC World interface is the red **neon/LED-style scrolling information panel** displayed above the main application.
+
+This is not a static image or a conventional scrolling Label control. The effect is rendered programmatically by the application.
+
+The implementation is contained primarily in `Mesagerie.frm`, where the `DrawNeon()` routine converts ordinary rendered text into a pixel-based display using separate graphical states for illuminated and non-illuminated cells. The resulting matrix is then shifted horizontally to produce the scrolling electronic-display effect.
+
+Conceptually, the rendering pipeline is:
+
+```text
+text message
+     |
+     v
+temporary text bitmap
+     |
+     v
+sample individual pixels
+     |
+     +---- active pixel ----> illuminated cell image
+     |
+     +---- empty pixel -----> dark cell image
+     |
+     v
+LED/neon matrix
+     |
+     v
+scrolling display
+```
+
+The text shown by the panel is generated dynamically. Among other information, the original code can display the:
+
+- computer name;
+- current Windows user account;
+- local IP address;
+- current date;
+- status/information concerning the current PC World edition;
+- location of the emergency HTML backup interface.
+
+The system-information text is assembled by `GetSysInfo()` and then passed to the neon renderer.
+
+This small component illustrates the general design philosophy of the project: even apparently decorative elements of the interface were often implemented as functional software components rather than pre-rendered graphics.
+---
+
+
 
 ## 5. Program captures and presentation
 
