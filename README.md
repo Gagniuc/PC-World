@@ -636,6 +636,15 @@ The PC World interface was not merely a graphical menu used to launch installers
 
 <hr>
 
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20030424.png" alt="PC World">
+
+</div>
+
+<hr>
+
 <div align="center">
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20030646.png" alt="PC World">
