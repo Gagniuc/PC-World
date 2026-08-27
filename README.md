@@ -80,6 +80,7 @@ The preserved monthly sequence runs from: **October 2004 → September 2005**. T
 
 Across those twelve monthly editions, the production archive represents **16 physical PC World companion CDs**.
 
+<div align="center">
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Aug_2005/Screenshot%202026-08-26%20052744.png" alt="PC World">
 
@@ -114,9 +115,7 @@ Across those twelve monthly editions, the production archive represents **16 phy
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Nov_2004/Screenshot%202026-08-26%20011409.png" alt="PC World">
 
 
-
-
-
+</div>
 
 ---
 
