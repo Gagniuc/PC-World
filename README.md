@@ -115,6 +115,8 @@ Across those twelve monthly editions, the production archive represents **16 phy
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Nov_2004/Screenshot%202026-08-26%20011409.png" alt="PC World">
 
 
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Oct_2004/ezgif-37e9f571da6a9b64.gif" alt="PC World">
+
 </div>
 
 ---
