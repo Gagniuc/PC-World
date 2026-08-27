@@ -171,18 +171,11 @@ The historical application itself calls the CD assembly operation a **"compilati
 
 <div align="center">
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Aug_2005/Screenshot%202026-08-26%20052849.png" alt="PC World">
-
-</div>
-
-
-<div align="center">
-
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/ezgif-190210b98f2adce4.gif" alt="PC World">
 
 </div>
 
-
+<hr>
 
 <div align="center">
 
@@ -190,6 +183,7 @@ The historical application itself calls the CD assembly operation a **"compilati
 
 </div>
 
+<hr>
 
 <div align="center">
 
@@ -197,7 +191,7 @@ The historical application itself calls the CD assembly operation a **"compilati
 
 </div>
 
-
+<hr>
 
 <div align="center">
 
