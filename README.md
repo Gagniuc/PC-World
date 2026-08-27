@@ -1,4 +1,4 @@
-# PC World Romania CD Interface Archive (2004–2005)
+# PC World Romania CD Interface Archive (2004-2005)
 
 **Complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005.** This repository preserves the development history of **16 PC World CD-ROMs produced during a continuous one-year period**, together with the Visual Basic 6 source code of the interfaces and the software I wrote to generate the monthly CD structure.
 
