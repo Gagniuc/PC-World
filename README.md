@@ -600,6 +600,58 @@ The application can enable/disable interface sound, play a looping monthly backg
 
 The PC World interface was not merely a graphical menu used to launch installers. Over time it evolved into a **self-contained Windows utility suite**, providing several tools that could be used directly from the CD interface. Among the functionality preserved in the source code are:
 
+
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-02%20010912.png" alt="PC World">
+
+</div>
+
+
+<hr>
+
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20030326.png" alt="PC World">
+
+</div>
+
+<hr>
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20030511.png" alt="PC World">
+
+</div>
+
+<hr>
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20030612.png" alt="PC World">
+
+</div>
+
+<hr>
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20030646.png" alt="PC World">
+
+</div>
+
+
+<hr>
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20031150.png" alt="PC World">
+
+</div>
+
+
 - **Ping / response-time testing** for remote hosts;
 - **IP and local-network scanning**;
 - **TCP port scanning**;
