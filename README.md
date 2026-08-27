@@ -442,7 +442,7 @@ This is essentially a small content database represented by files and directory 
 
 The generator is one of the most important parts of this repository.
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/intro.png">
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/vb%20(I).png">
 
 A preserved project identifies it as:
 
