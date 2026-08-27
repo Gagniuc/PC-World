@@ -134,7 +134,7 @@ In modern terminology, the system was a combination of:
 
 implemented primarily in **Microsoft Visual Basic 6.0**.
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/VB6.gif">
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/vb%20(I).png">
 
 The project had two principal layers:
 
@@ -442,7 +442,7 @@ This is essentially a small content database represented by files and directory 
 
 The generator is one of the most important parts of this repository.
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/vb%20(I).png">
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/intro.png">
 
 A preserved project identifies it as:
 
