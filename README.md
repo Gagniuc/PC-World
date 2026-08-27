@@ -160,6 +160,14 @@ The historical application itself calls the CD assembly operation a **"compilati
 
 ## 1. The main PC World application — `CD.exe`
 
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/ezgif-1cb34aa39924a704.gif" alt="PC World">
+
+</div>
+
+
 One preserved August 2005 project identifies the main program as:
 
 ```text
