@@ -4,6 +4,10 @@
 
 This repository preserves the development history of **16 PC World CD-ROMs produced during a continuous one-year period**, together with the Visual Basic 6 source code of the interfaces and the software I wrote to generate the monthly CD structure.
 
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/ban/set%20(I).png" alt="PC World | CDs">
+
+
 It is not a reconstruction based only on screenshots or executables. The archive contains the actual working sources, several intermediate and alternative versions, the generator/template system, monthly CD trees, graphics, sounds, HTML content, configuration files, helper programs, and later compatibility work for modern Windows.
 
 > **Historical archive:** this repository intentionally preserves multiple generations of the project. Some folders contain original 2004–2005 sources, others contain later working copies or the 2026 English/Windows 11 restoration. They should not be assumed to represent one perfectly synchronized release tree.
