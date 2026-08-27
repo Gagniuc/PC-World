@@ -583,21 +583,46 @@ Some of the audio control is routed through tiny local HTML files loaded into hi
 
 ## 11. Built-in network tools
 
-Later versions of the interface contain an additional network/Internet toolbox rather than limiting the disc to software installation.
+The PC World interface was not merely a graphical menu used to launch installers. Over time it evolved into a **self-contained Windows utility suite**, providing several tools that could be used directly from the CD interface.
 
-The preserved source contains forms/modules for:
+Among the functionality preserved in the source code are:
 
-- IP/network scanning;
-- response-time tests;
-- port scanning;
-- service-name identification;
-- host/address resolution;
-- an embedded local HTTP server;
-- Winsock-based communication.
+- **Ping / response-time testing** for remote hosts;
+- **IP and local-network scanning**;
+- **TCP port scanning**;
+- **service identification** for known network ports;
+- **hostname and IP-address resolution**;
+- several Winsock-based network diagnostics;
+- an integrated **HTTP server**;
+- the ability to expose and browse CD content over a local network.
 
-The local server code can listen on a configurable port (port 80 is the preserved default), generate HTTP headers, return directory/file listings and serve local files. Screenshots preserved with the August 2005 edition show the **"Inter-Server v1.0 beta"** interface running from inside the PC World environment.
+One of the more unusual components was the built-in **Inter-Server**, a small HTTP server implemented directly in Visual Basic 6 using Winsock. It could listen on a configurable TCP port, process incoming HTTP requests, generate response headers, display directories and serve files from the local machine/CD.
 
-This part of the project uses `MSWINSCK.OCX`, Winsock API structures and other low-level networking functions that were typical of native Windows utilities of that period.
+This meant that the contents of the PC World disc could effectively be made available to another computer on the same network without installing a separate web-server package.
+
+The interface therefore served two roles simultaneously:
+
+```text
+PC World CD
+     |
+     +-- Software distribution platform
+     |      installers
+     |      applications
+     |      drivers
+     |      magazine content
+     |
+     +-- Stand-alone utility environment
+            ping / response tests
+            IP scanner
+            port scanner
+            host resolution
+            network diagnostics
+            HTTP file server
+```
+
+These functions were integrated into the same custom graphical environment as the software catalog, rather than being separate external programs.
+
+For a magazine companion CD from 2004–2005, this made the application considerably more than an `AUTORUN` menu: it was a small **multimedia and networking shell** with its own diagnostic and content-sharing capabilities.
 
 ---
 
