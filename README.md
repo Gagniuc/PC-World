@@ -171,7 +171,7 @@ The historical application itself calls the CD assembly operation a **"compilati
 
 <div align="center">
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/ezgif-190210b98f2adce4.gif" alt="PC World">
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Aug_2005/Screenshot%202026-08-26%20052849.png" alt="PC World">
 
 </div>
 
@@ -181,6 +181,30 @@ The historical application itself calls the CD assembly operation a **"compilati
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/ezgif-190210b98f2adce4.gif" alt="PC World">
 
 </div>
+
+
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Aug_2005/Screenshot%202026-08-26%20052827.png" alt="PC World">
+
+</div>
+
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/captura%20(I).png" alt="PC World">
+
+</div>
+
+
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/bandicam%202026-08-26%2003-20-27-017.jpg" alt="PC World">
+
+</div>
+
 
 
 One preserved August 2005 project identifies the main program as:
@@ -241,7 +265,7 @@ Equivalent structures are generated for `MM`, `JC`, `IN`, `AV`, and `PR`. The ap
 
 ---
 
-## 2. A custom data format — `biohazard.zulu`
+## 2. A custom data format - `biohazard.zulu`
 
 The monthly menus are not hard-coded into a separately compiled executable. Instead, the generator writes a small custom text database named:
 
@@ -535,6 +559,12 @@ If the expected success state is not detected, `Control.exe` opens:
 ```text
 aferent\BackUp.htm
 ```
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mar_2005/Screenshot%202026-08-27%20024641.png" alt="PC World">
+
+</div>
 
 as a fallback. The exact bootstrap relationship between `Start.exe` and `Control.exe` changed between archived snapshots, and not every historical source folder is synchronized with every final CD binary. That is why the repository preserves the variants instead of pretending there was a single immutable bootstrap implementation.
 
