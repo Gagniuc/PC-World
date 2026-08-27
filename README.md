@@ -511,7 +511,7 @@ Matrita = generated monthly CD structure
 
 ---
 
-## 8. Startup animation — `Start.exe`
+## 8. Startup animation - `Start.exe`
 
 The project also contains source snapshots for `Start.exe`. The program is a borderless VB6 window that uses the Windows Multimedia API:
 
@@ -537,7 +537,7 @@ Thus the user experience was designed to begin with the animated intro before en
 
 ---
 
-## 9. `Control.exe` — watchdog and fallback
+## 9. `Control.exe` - watchdog and fallback
 
 `Control.exe` is a small hidden helper application.
 
