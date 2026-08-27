@@ -199,6 +199,13 @@ The historical application itself calls the CD assembly operation a **"compilati
 
 </div>
 
+<hr>
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Nov_2004/Screenshot%202026-08-26%20012020.png" alt="PC World">
+
+</div>
 
 
 One preserved August 2005 project identifies the main program as:
