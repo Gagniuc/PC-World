@@ -114,7 +114,7 @@ Across those twelve monthly editions, the production archive represents **16 phy
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Nov_2004/Screenshot%202026-08-26%20011409.png" alt="PC World">
 
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Oct_2004/ezgif-37e9f571da6a9b64.gif" alt="PC World">
+
 
 
 
@@ -132,51 +132,8 @@ implemented primarily in **Microsoft Visual Basic 6.0**.
 
 The project had two principal layers:
 
-```text
-                 MONTHLY CD GENERATION
-                 =====================
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/schema.png" alt="PC World">
 
-          program metadata / installers / images
-          drivers / sounds / magazine content
-                         |
-                         v
-                +-------------------+
-                | CD Maker / Set.exe|
-                | "Generare Matrita"|
-                +-------------------+
-                         |
-              generates + copies
-                         |
-                         v
-                +-------------------+
-                |     Matrita       |
-                | burn-ready CD tree|
-                +-------------------+
-                         |
-                         v
-                 physical PC World CD
-
-
-                   CD RUNTIME
-                   ==========
-
-                 AUTORUN.INF
-                      |
-                      v
-                  Start.exe
-               intro AVI / MCI
-                      |
-                      v
-                    CD.exe
-             main PC World shell
-                      |
-          +-----------+------------+
-          |           |            |
-       programs     HTML/GIF     utilities
-       install/run  content      network tools
-
-          Control.exe = watchdog/fallback helper
-```
 
 The historical application itself calls the CD assembly operation a **"compilation"**. Technically, the generator does not recompile the Visual Basic program every month. It performs a content/build step: it creates the directory hierarchy, generates configuration and HTML files, copies graphics and program packages, and places the already compiled runtime executables into the final `Matrita` tree.
 
