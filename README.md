@@ -913,3 +913,21 @@ This repository is primarily a historical and educational software archive. The 
 ## Final note
 
 For me, this repository is a snapshot of a very specific period in personal-computer history: software was still distributed physically, magazine CDs were an important way for users to discover programs, and a single CD interface had to run on an unpredictable collection of Windows machines, graphics cards, codecs and installed runtimes. What began as a casual question about distributing **Delta Memory Force V2.0** became a one-year software-production project and, eventually, this archive.
+
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/ban/set%20(II).png" alt="PC World">
+
+</div>
+
+<hr>
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/times%20(I).jpg" alt="PC World">
+
+</div>
+
+
+
