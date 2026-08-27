@@ -10,6 +10,13 @@ It is not a reconstruction based only on screenshots or executables. The archive
 
 > **Historical archive:** this repository intentionally preserves multiple generations of the project. Some folders contain original 2004–2005 sources, others contain later working copies or the 2026 English/Windows 11 restoration. They should not be assumed to represent one perfectly synchronized release tree.
 
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/ezgif-6fa3ae7da83254c8.gif" alt="PC World">
+
+</div>
+
 ---
 
 ## Historical background
@@ -308,6 +315,12 @@ The GIF code supports frame loading, palettes, transparent colors, delays and an
 ## The scrolling neon information display
 
 One of the distinctive visual elements of the PC World interface is the red **neon/LED-style scrolling information panel** displayed above the main application. This is not a static image or a conventional scrolling Label control. The effect is rendered programmatically by the application. The implementation is contained primarily in `Mesagerie.frm`, where the `DrawNeon()` routine converts ordinary rendered text into a pixel-based display using separate graphical states for illuminated and non-illuminated cells. The resulting matrix is then shifted horizontally to produce the scrolling electronic-display effect. Conceptually, the rendering pipeline is:
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/ezgif-6fa3ae7da83254c8.gif" alt="PC World">
+
+</div>
 
 ```text
 text message
