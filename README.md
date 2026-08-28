@@ -443,7 +443,7 @@ The result was a data-driven architecture in which one VB6 runtime could interpr
 
 ## 3. Hybrid native/HTML interface
 
-The project mixes native VB6 controls with local HTML. The main application embeds the Microsoft WebBrowser/Internet Explorer COM engine and loads local files such as:
+As briefly mentioned above, the project mixes native VB6 controls with local HTML content. The main application embeds the Microsoft WebBrowser/Internet Explorer COM engine and loads local files such as:
 
 ```text
 aferent\Intrare.htm
@@ -459,7 +459,7 @@ This was useful because substantial presentation content could be changed every 
 
 ## 4. Custom graphics engine and controls
 
-The interface contains a surprisingly large amount of graphics code for a magazine CD launcher. Important components include:
+The interface contains a large amount of native graphics code for a magazine CD launcher. Important components include both code written specifically for the project and third-party graphical components. In particular, some of the ActiveX controls and GIF-handling libraries were written by other programmers and published on **Planet Source Code**, a major programming community and source-code archive at the time. Planet Source Code was also one of the main places from which I learned advanced programming during that period.
 
 ```text
 Buton_3D.ctl       custom graphical button control
