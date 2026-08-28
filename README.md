@@ -208,6 +208,8 @@ After initialization, the reader entered the main PC World environment. The uppe
 
 </div>
 
+<br>
+
 The central presentation surface was deliberately dynamic. Depending on the selected section, it could contain introductory artwork, program information, HTML content, captures, application lists, or other edition-specific material. This allowed the same graphical shell to present several different types of content without opening separate Windows forms for each function.
 
 <hr>
@@ -262,6 +264,8 @@ The interface also included a dedicated `Revista` section for software associate
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/captura%20(I).png" alt="PC World">
 
 </div>
+
+<br>
 
 The text visible directly in the July 2005 interface explains this relationship explicitly: the listed programs could be found on the CD in the `Revista` directory, while their detailed descriptions could be read in the pages of the magazine. The screenshot therefore documents how the software interface and the printed publication were designed to be used together rather than as completely independent products. This created a direct link between the physical magazine and its companion CD. The magazine provided the editorial description and context, while the CD supplied the corresponding executable packages. The `Revista` section acted as the bridge between the two, allowing the reader to locate the software mentioned in the issue without manually browsing the disc directory structure.
 
