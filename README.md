@@ -819,7 +819,7 @@ In the preserved example, the destination is `192.168.1.5`. The program repeated
 
 ### TCP port scanner
 
-The **Scanare porturi** function tested a selected range of TCP ports on one target machine. The user entered the target IP address together with the first and last port to be scanned, after which the program attempted connections throughout that range and reported ports that responded.
+The **Scanare porturi** function tested a selected range of TCP ports on one target machine. The user entered the target IP address together with the first and last port to be scanned, after which the program attempted connections throughout that range and reported ports that responded. Internally, the scanner performs ordinary TCP connection attempts through the VB6 Winsock control. For each candidate port, the program assigns the target host and port and calls `Connect`. A port is considered open when the Winsock `Connect` event is successfully raised; failed connection attempts are closed and the scan continues with the next port. The implementation therefore corresponds to what would now normally be described as a **TCP connect scan**, rather than a raw packet or UDP scanner. The scanner also contains a small service identification table. When an open port corresponds to a known port number, the result is supplemented with a human readable service name. This allowed the output to provide more useful information than the port number alone. Unknown open ports were still reported, but without an associated service description.
 
 <div align="center">
 
@@ -827,7 +827,7 @@ The **Scanare porturi** function tested a selected range of TCP ports on one tar
 
 </div>
 
-The screenshot shows a scan of `192.168.1.5` beginning at port `1` and progressing through the TCP range. Ports `135`, `139` and `445` are detected as open. The program also associates several known port numbers with recognizable service names, including **DCE endpoint resolution**, **NETBIOS Session Service** and **Microsoft DS**. The status line continuously reports the port currently being tested. The preserved execution also shows that a running scan could be interrupted before reaching the requested upper limit.
+During execution, the current port is continuously displayed in the status area, while detected services are appended to the result window together with timestamps. The scan could cover almost the complete TCP port space, but it could also be stopped manually before reaching the selected upper limit. This made the same tool useful both for short targeted checks and for much longer full range scans. The screenshot shows a scan of `192.168.1.5` beginning at port `1` and progressing through the TCP range. Ports `135`, `139` and `445` are detected as open. The program also associates several known port numbers with recognizable service names, including **DCE endpoint resolution**, **NETBIOS Session Service** and **Microsoft DS**. The status line continuously reports the port currently being tested. The preserved execution also shows that a running scan could be interrupted before reaching the requested upper limit.
 
 <hr>
 
@@ -959,13 +959,10 @@ The exact tree continues to evolve as the surviving material is identified, repa
 
 ---
 
-# Original code versus 2026 restoration
-
-Two kinds of material should be distinguished.
 
 ### Original/historical material
 
-The historical sources were created for the Windows 2000/XP-era software ecosystem and use VB6, ActiveX and Internet Explorer components that were normal at that time. Historical project files reference development locations such as:
+The historical source trees are preserved as working material from the original 2004 and 2005 development period, not as a later cleaned or normalized release. They therefore reflect the machines, directory layouts, tools and Windows environment on which the CDs were actually produced. The code assumes the software ecosystem of the Windows 2000/XP period and makes extensive use of Visual Basic 6, ActiveX controls, Internet Explorer components and Win32 APIs that were standard choices at the time. Several source files also retain absolute development paths used during production, for example:
 
 ```text
 E:\PC_februarie\
@@ -973,7 +970,8 @@ E:\MADALIN\Generator_Matrita\
 C:\PC_World\
 ```
 
-These paths are part of the original source history and have intentionally not been erased everywhere.
+These paths have intentionally been left in the historical sources because they provide useful provenance. They show where particular components were developed, generated or tested and preserve traces of the original production workflow that would disappear if every reference were modernized. They should not be interpreted as installation requirements for the current archive. Some directories refer to drives or folders that no longer exist, and a historical project may require path adjustments before it can be compiled or executed on another computer. Likewise, duplicated files, obsolete references and small differences between monthly source trees are retained where they document the actual state of the project rather than being silently rewritten into a single artificial final version.
+
 
 ### Modern restoration
 
