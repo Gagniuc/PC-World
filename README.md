@@ -920,14 +920,3 @@ For me, this repository is a snapshot of a very specific period in personal-comp
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/ban/set%20(II).png" alt="PC World">
 
 </div>
-
-<hr>
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/times%20(I).jpg" alt="PC World">
-
-</div>
-
-
-
