@@ -791,7 +791,7 @@ By May 2005, the PC World interface had developed a complete group of networking
 
 ### Network tools screen
 
-The main networking screen preserved the general structure of the PC World interface. The embedded browser controls remained visible at the top, while the central area used a world map as the visual background for the networking section. Four dedicated controls provided access to the principal tools: **Scanare IP** for IP scanning, **Viteza de raspuns** for response testing, **Scanare porturi** for TCP port scanning, and **Server Web** for the integrated HTTP server.
+The main networking screen preserved the general structure of the PC World interface. The embedded browser controls remained visible at the top, while the central area used a world map as the visual background for the networking section. Four dedicated controls provided access to the principal tools: **Scanare IP** for IP scanning, **Viteza de raspuns** for response testing, **Scanare porturi** for TCP port scanning, and **Server Web** for the integrated HTTP server. This arrangement shows how the network functions were added as another working layer of `CD.exe` rather than as a separate utility package. The reader could move from the software catalog to Internet browsing or network diagnostics while remaining inside the same PC World shell.
 
 <div align="center">
 
@@ -799,13 +799,15 @@ The main networking screen preserved the general structure of the PC World inter
 
 </div>
 
-This arrangement shows how the network functions were added as another working layer of `CD.exe` rather than as a separate utility package. The reader could move from the software catalog to Internet browsing or network diagnostics while remaining inside the same PC World shell.
+The screenshot also captures the hybrid character of the application particularly well. The navigation controls at the top belong to the embedded browser environment, while the four networking commands below the map invoke native VB6 functionality and dedicated utility windows. The text visible over the map identifies the integrated browser as **version 0.6**, showing that the browser component itself was still evolving alongside the networking tools during the monthly releases. The world map was primarily a thematic background for this part of the interface, visually separating the networking functions from the ordinary software catalog while preserving the same surrounding skin, sound controls and navigation conventions. Selecting one of the four network functions did not replace the entire application; it opened the corresponding diagnostic or server interface on top of, or in conjunction with, the main PC World environment. This screen therefore acted as the central entry point for the networking subsystem. From here, the user could test the reachability and response time of another host, scan TCP ports on a selected machine, search ranges of IP addresses for a particular service, or start the integrated HTTP server. The following subsections document these functions individually and show the information produced by each tool.
+
 
 <hr>
 
+
 ### Ping and response time testing
 
-The **Viteza de raspuns** function opened a dedicated Ping window. The user could specify the destination IP address, the number of requests and the packet size. The application then displayed the reply information for each packet, including the returned size, round trip time and TTL value.
+The **Viteza de raspuns** function opened a dedicated Ping window. The user could specify the destination IP address, the number of requests and the packet size. The application then displayed the reply information for each packet, including the returned size, round trip time and TTL value. The utility was designed as a graphical equivalent of the familiar command line Ping diagnostic, but with the principal test parameters exposed directly in the interface. The **Ping** control determines how many requests are issued, while **Pachet** specifies the packet size. The destination can be entered either as an IP address or as a host address, allowing the same window to be used for quick reachability checks or for a longer sequence of measurements.
 
 <div align="center">
 
@@ -813,7 +815,8 @@ The **Viteza de raspuns** function opened a dedicated Ping window. The user coul
 
 </div>
 
-In the preserved example, the destination is `192.168.1.5`. The program repeatedly receives 32 byte replies with a reported round trip time of approximately zero milliseconds and a TTL value of 128. At the end of the test, it also calculates and displays the approximate average response time. The purpose was practical. The tool could immediately verify whether another computer was reachable and give a simple indication of connection latency without requiring the reader to open a command prompt or use a separate network utility.
+During the test, every successful reply is appended to the result window rather than replacing the previous one. Each line records the responding address together with the number of returned bytes, the measured **RTT** and the **TTL** value. This makes it possible to observe individual responses as the test progresses and to notice changes in latency or missing replies instead of receiving only a final summary. In the preserved example, the destination is `192.168.1.5`. The program repeatedly receives 32 byte replies with a reported round trip time of approximately zero milliseconds and a TTL value of `128`. At the end of the test, it calculates and displays the approximate average response time. The capture therefore shows both the individual measurements recorded during the test and the final summary produced by the utility.
+
 
 <hr>
 
@@ -904,22 +907,13 @@ On a local network, another machine could therefore browse material from the dis
 ---
 
 
-## 12. Other operating-system integration
+## 12. Other operating system integration
 
-The code also demonstrates direct Win32 integration in several places. Examples include:
+A significant part of `CD.exe` communicates directly with Windows rather than relying only on standard Visual Basic 6 controls. The source contains numerous calls to the Win32 API for controlling windows, interacting with the desktop and taskbar, launching external programs, handling multimedia and performing low level graphical operations. This allowed the custom PC World interface to behave much less like a conventional VB6 form and much more like an application integrated with the Windows desktop environment. Several of these calls are related directly to the unusual graphical interface. `SetParent` is used to change the parent of windows and embed or reposition them inside other interface elements, while `MoveWindow` and `SetWindowPos` provide precise control over their size and position. Borderless forms could still be moved by the user through `SendMessage`, reproducing normal window dragging even when the standard Windows title bar was absent. These techniques were particularly useful because much of the PC World interface replaced conventional window decoration with its own graphical skin.
 
-- changing the desktop wallpaper with `SystemParametersInfo`;
-- querying and manipulating the Windows taskbar/appbar;
-- re-parenting windows with `SetParent`;
-- moving/resizing windows with `MoveWindow` / `SetWindowPos`;
-- dragging borderless forms through `SendMessage`;
-- system tray integration with `Shell_NotifyIcon`;
-- launching files/programs through `ShellExecute`;
-- multimedia playback through `winmm.dll`;
-- graphics operations through `gdi32.dll`;
-- direct file copying and binary file access.
+The application also interacts with the Windows shell. `SystemParametersInfo` is used for desktop wallpaper operations, while taskbar and AppBar related API calls allow the program to query or manipulate elements of the Windows desktop environment. `Shell_NotifyIcon` provides access to the system tray, and `ShellExecute` is used throughout the project to open documents, launch executables and delegate files or URLs to the applications registered by Windows. Multimedia support also extends outside the normal VB6 control set. Functions from `winmm.dll` are used for audio and video playback, including the MCI functionality used elsewhere in the project for the introductory AVI. Graphics related operations rely extensively on `gdi32.dll`, which complements the custom bitmap, GIF and interface rendering code described in previous sections.
 
-This was therefore a native Windows application with substantial Win32 interaction, not only a visual front end.
+File handling similarly mixes ordinary Visual Basic operations with direct binary access and explicit file copying. This was important because `CD.exe` continuously worked with resources stored on the disc, generated configuration files, temporary local files and software packages that could be installed, executed or copied to the user's computer. The result is a fairly extensive Win32 layer underneath the visible VB6 interface. Although the application was developed in Visual Basic 6, many of the behaviors visible to the reader depended on direct interaction with Windows APIs for window management, desktop integration, multimedia, graphics, file operations and process launching. This combination of VB6 application logic with native Windows services is present throughout the surviving source code.
 
 ---
 
