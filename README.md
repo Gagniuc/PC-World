@@ -26,7 +26,7 @@ Among the other interface elements was a scrolling LED message display. The mess
 </div>
 
 <br>
-The scrolling effect was generated programmatically. The message was first rendered as ordinary text into an off-screen bitmap, then sampled pixel by pixel. Pixels belonging to the letters were converted into illuminated cells, while background pixels were represented by unlit cells. The resulting matrix was shifted horizontally at regular timer intervals, creating the continuous LED-style movement.
+The scrolling effect was generated programmatically. The message was first rendered as ordinary text into an off-screen bitmap, then sampled pixel by pixel. Pixels belonging to the letters were converted into illuminated cells, while background pixels were represented by unlit cells. The resulting matrix was shifted horizontally at regular timer intervals, creating the continuous LED-style movement. As the interface evolved from one monthly edition to the next, additional functionality was progressively integrated into the same application. Later versions included a custom browser, built-in network utilities, host and IP resolution, ping and response-time tools, network and port scanning, and an integrated HTTP web server. The server could expose files directly from the CD over the local network, allowing another computer to browse and retrieve the disc contents through a web browser. If the host computer had a publicly reachable IP address and the necessary network configuration, the same mechanism could also make the CD contents accessible over the Internet.
 
 ---
 
