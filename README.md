@@ -1006,25 +1006,15 @@ Some monthly CD trees preserved local copies of runtime DLLs so that the softwar
 
 # Notes for building the VB6 sources
 
-The project is historical software, not a modern single-command build. For the closest development environment, use:
+The project is historical software rather than a modern single command build. The closest development environment is **Microsoft Visual Basic 6.0** with a 32 bit ActiveX setup matching the references stored in the original `.vbp` files. The corresponding `.frm` and `.frx` files must remain together, and any custom `.ctl`, `.cls` and `.bas` modules referenced by a project must also be available.
 
-```text
-Microsoft Visual Basic 6.0
-32-bit ActiveX controls matching the .vbp references
-the original .frm/.frx pairs
-the required custom .ctl/.cls/.bas modules
-```
+The `.frx` files are especially important because they contain binary resources used by the forms. Likewise, custom `.ctl` controls may depend on associated resource files and should not be separated from them. The archive contains several experimental, intermediate and alternate modules, so the presence of a source file inside a directory does not automatically mean that it belongs to the active `.vbp` project for that particular snapshot.
 
-Important points:
+Some preserved `.vbp` files still contain absolute development paths inherited from the original machines used during production. These can be adjusted for a modern local setup when necessary. Old OCX references may also need to be restored and registered in a 32 bit environment before a project can be opened or compiled correctly.
 
-1. Keep `.frm` and `.frx` files together. The `.frx` files contain binary resources used by the forms.
-2. Keep `.ctl` controls with their associated resources when present.
-3. Do not assume every source file in a folder is part of the active `.vbp`; the archive contains experimental and alternate modules.
-4. Some `.vbp` files still contain absolute development paths. These can be edited for a modern local setup.
-5. Old OCX references may need to be restored/registered in a 32-bit environment.
-6. Legacy AVI playback depends on MCI/codecs and may require a repaired or converted media file on current Windows.
-7. The main HTML layer assumes legacy IE/WebBrowser behavior.
-8. Several sources use `On Error Resume Next`, reflecting the defensive style used to keep the CD interface running on heterogeneous consumer PCs.
+Legacy AVI playback depends on the Windows MCI subsystem and on codecs that were common at the time. On current versions of Windows, some preserved media files may therefore require repair or conversion before they can be played successfully. The HTML portions of the interface similarly assume the behavior of the legacy Internet Explorer WebBrowser component rather than that of a modern browser engine.
+
+Several source files make extensive use of `On Error Resume Next`. This reflects the defensive programming style used to keep the CD interface running across heterogeneous consumer PCs with different Windows installations, multimedia configurations, ActiveX registrations and available system components. When restoring or debugging the projects today, this behavior should be kept in mind because an unavailable dependency may be silently ignored rather than immediately producing a visible runtime error.
 
 ---
 
@@ -1039,7 +1029,7 @@ The production process existed before Git-based workflows were part of my day-to
 - old experimental functions left in place;
 - commented-out implementations next to replacement code;
 - historical hard-coded paths;
-- 2026 edits living beside 2004–2005 timestamps.
+- 2026 edits living beside 2004-2005 timestamps.
 
 For software archaeology, these inconsistencies are useful. They show how the application actually evolved under a monthly production deadline.
 
@@ -1072,21 +1062,13 @@ This repository is primarily a historical and educational software archive. The 
 
 ---
 
-# Credits
-
-**Software, CD interface, template system and production: Paul A. Gagniuc**
-
-**PC World Romania coordination: Madalin Lacraru**
-
-**Original production period: October 2004 – September 2005**
-
-**Archival restoration / modern compatibility work: 2026**
-
----
-
 ## Final note
 
 For me, this repository is a snapshot of a very specific period in personal-computer history: software was still distributed physically, magazine CDs were an important way for users to discover programs, and a single CD interface had to run on an unpredictable collection of Windows machines, graphics cards, codecs and installed runtimes. What began as a casual question about distributing **Delta Memory Force V2.0** became a one-year software-production project and, eventually, this archive.
+
+For someone browsing the repository today, it may appear simply as a collection of old Visual Basic projects, graphics, configuration files and monthly CD structures. For the programmer who created them, however, a project of this scale represents much more than source code. Every substantial software project occupies a period of one's life: particular computers, places, people, problems, routines, ideas and countless hours spent trying to make things work. Looking back at such a project twenty years later can feel almost like looking into another life, because the code preserves not only how a program worked, but also how its author thought and worked at that particular moment in time.
+
+This is ultimately why I chose to preserve the project as completely as possible. Beyond its technical and historical value, the archive records one year of my own life as a programmer, captured in source code, interfaces, experiments, mistakes, solutions and the sixteen physical CDs that resulted from that work.
 
 
 <div align="center">
