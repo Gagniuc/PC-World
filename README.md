@@ -459,7 +459,7 @@ This was useful because substantial presentation content could be changed every 
 
 ## 4. Custom graphics engine and controls
 
-The interface contains a large amount of native graphics code for a magazine CD launcher. Important components include both code written specifically for the project and third-party graphical components. In particular, some of the ActiveX controls and GIF-handling libraries were written by other programmers and published on **Planet Source Code**, a major programming community and source-code archive at the time. Planet Source Code was also one of the main places from which I learned advanced programming during that period.
+The interface contains a large amount of native graphics code for a magazine CD launcher. Important components include both code written specifically for the project and third-party graphical components. In particular, some of the ActiveX controls and GIF-handling libraries were written by other programmers and published on **Planet Source Code**, a major programming community and source-code archive at the time. Planet Source Code was also one of the main places from which I learned advanced programming during that period. In many respects, this ecosystem played a role similar to the package and library ecosystem surrounding Python today. Long before Python became a mainstream development platform, Visual Basic 6 already had a large community producing reusable controls, graphics libraries, networking components, parsers and complete source-code modules that could be incorporated into other applications. Planet Source Code was one of the principal repositories through which such code circulated.
 
 ```text
 Buton_3D.ctl       custom graphical button control
@@ -479,7 +479,7 @@ The GIF code supports frame loading, palettes, transparent colors, delays and an
 
 ## The scrolling neon information display
 
-One of the distinctive visual elements of the PC World interface is the red **neon/LED-style scrolling information panel** displayed above the main application. This is not a static image or a conventional scrolling Label control. The effect is rendered programmatically by the application. The implementation is contained primarily in `Mesagerie.frm`, where the `DrawNeon()` routine converts ordinary rendered text into a pixel-based display using separate graphical states for illuminated and non-illuminated cells. The resulting matrix is then shifted horizontally to produce the scrolling electronic-display effect. Conceptually, the rendering pipeline is:
+One of the distinctive visual elements of the PC World interface is the red **neon/LED-style scrolling information panel** displayed above the main application. This is not a static image or a conventional scrolling Label control. The effect is rendered programmatically by the application. The implementation is contained primarily in `Mesagerie.frm`, where the `DrawNeon()` routine converts ordinary rendered text into a pixel-based display using separate graphical states for illuminated and non-illuminated cells.
 
 <div align="center">
 
@@ -487,63 +487,53 @@ One of the distinctive visual elements of the PC World interface is the red **ne
 
 </div>
 
+The message is first rendered as ordinary text into an off-screen bitmap represented by `Lungime_txt`. `DrawNeon()` then samples this bitmap pixel by pixel. Pixels sufficiently different from the background are treated as parts of the characters and replaced with the illuminated-cell graphic `Pe_fundal`, while background pixels are represented by the dark-cell graphic `fundal_pix`. The resulting dot matrix is drawn into the visible `Cadran_afisare` area.
+
 ```text
 text message
      |
      v
-temporary text bitmap
+off-screen text bitmap (`Lungime_txt`)
      |
      v
 sample individual pixels
      |
-     +---- active pixel ----> illuminated cell image
+     +---- text pixel ------> illuminated cell (`Pe_fundal`)
      |
-     +---- empty pixel -----> dark cell image
-     |
-     v
-LED/neon matrix
+     +---- background ------> dark cell (`fundal_pix`)
      |
      v
-scrolling display
+visible LED matrix (`Cadran_afisare`)
+     |
+     v
+horizontal scrolling
 ```
 
-The text shown by the panel is generated dynamically. Among other information, the original code can display the:
+The scrolling itself is timer-driven. The `secunda` timer calls `DrawNeon()` approximately every **110 ms**, while the message position advances by **three units per update** (`xbStep = 3`). Parts of the previous frame are reused with `PaintPicture`, so the display does not need to reconstruct the complete visible matrix from scratch for every movement. Once the entire message has passed across the display, its horizontal position is reset and the scrolling cycle begins again. Clicking the display can also pause or resume the animation by disabling or re-enabling the timer. The text shown by the panel is generated dynamically. Among other information, the original code can display the computer name, the current Windows user account, the local IP address, the current date, status information concerning the current PC World edition, and the location of the emergency HTML backup interface. The system-information text is assembled by `GetSysInfo()` and then passed to the neon renderer.
 
-- computer name;
-- current Windows user account;
-- local IP address;
-- current date;
-- status/information concerning the current PC World edition;
-- location of the emergency HTML backup interface.
-
-The system-information text is assembled by `GetSysInfo()` and then passed to the neon renderer. This small component illustrates the general design philosophy of the project: even apparently decorative elements of the interface were often implemented as functional software components rather than pre-rendered graphics.
+A particularly specific function of the panel was to compare the date of the PC World edition stored on the CD with the computer's current system date. The generated message could indicate whether the inserted disc represented the latest expected issue, whether one newer monthly issue should already have appeared, or how many newer editions should exist according to the elapsed months. The display therefore combined system information, edition-status logic and custom graphics inside the same scrolling component. Even this relatively small interface element consequently contains its own text-generation logic, bitmap rasterization, pixel classification, animation timing and frame management rather than relying on a pre-rendered animation.
 
 ---
 
 
-
 ## 5. Program captures and presentation
 
-For each program, the generator can copy two GIF presentation images into the category tree:
+The visual presentation of each software entry was also generated from the directory structure rather than being embedded permanently in `CD.exe`. During preparation of a monthly CD, the generator copied the images associated with each program into predictable locations inside the corresponding category directory:
 
 ```text
 aferent\<CATEGORY>\<index>.gif
 aferent\<CATEGORY>\img\<index>.gif
 ```
 
-The main interface loads these images dynamically when a program is selected.
+The `<CATEGORY>` component identifies the software section (`UT`, `MM`, `JC`, `IN`, `AV`, or `PR`), while `<index>` corresponds to the numerical program slot used throughout the rest of the application. The same index therefore linked the program listed in the menu with its description, graphical capture and files stored elsewhere in that category tree.
 
-The monthly CD therefore separates:
+When the reader selected a program, `CD.exe` used this information to load the corresponding GIF dynamically and place it into the presentation area of the interface. This is the mechanism visible in the monthly screenshots where selecting different software immediately changes both the descriptive text and the image shown on the right side of the interface. The executable itself did not need to contain those screenshots; replacing the files belonging to an indexed entry was sufficient to change what the reader saw.
 
-- program title;
-- program description;
-- screenshot/capture;
-- installer;
-- run-only executable;
-- optional ZIP package;
-- optional text/readme.
+The presentation data and the actual software package were deliberately kept as separate resources. A single program entry could therefore have its title and description in the generated data file, one or more GIF images for visual presentation, an installer executable, a directly runnable version, a ZIP archive, and an optional text file. Not every entry needed to contain every type of resource. `CD.exe` checked what was actually available and adapted the interface accordingly.
 
-This is essentially a small content database represented by files and directory conventions.
+This file-based organization was particularly useful for monthly production. Most of the application engine could remain unchanged while the programs, descriptions, captures and installation packages were replaced for the next issue. The directory structure effectively served as a lightweight content database: filenames, numerical indexes and predefined locations established the relationships that a conventional database would normally store in records and fields.
+
+Consequently, the material presented to the reader was assembled at runtime from several independent components — generated textual metadata, indexed images and the corresponding software files — rather than from a separate hard-coded interface created for every program on every CD.
 
 ---
 
