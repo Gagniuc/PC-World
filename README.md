@@ -269,7 +269,7 @@ The text visible directly in the July 2005 interface explains this relationship 
 
 ### Integrated HTML presentation and help system
 
-Some parts of the interface were implemented as local HTML documents displayed inside the application. The June 2005 Help page below is one example. It is visually integrated into the PC World skin but provides formatted text, links and scrolling through the embedded browser component.
+Some parts of the interface were implemented as local HTML documents displayed inside the application. The June 2005 Help page below is one example. It is visually integrated into the PC World skin but provides formatted text, links and scrolling through the embedded browser component. The Help section was not strictly necessary for operating the application, but including a dedicated help function had become part of the unwritten conventions of desktop software at the time. This convention was reinforced indirectly by the design patterns of Windows applications and Microsoft software, where a visible Help command or button was commonly expected even when the interface itself was relatively straightforward.
 
 <div align="center">
 
@@ -285,7 +285,7 @@ The help text itself describes several interface behaviors. It explains that sel
 
 ### Built-in web browser
 
-Internet browsing was already being integrated into the interface by November 2004. The screenshot below shows an early custom browser identified directly in the interface as **version 0.1**.
+The browser functionality grew directly out of the hybrid architecture chosen for the application from the beginning of the project in 2004. `CD.exe` combined conventional Visual Basic 6 forms and controls with Microsoft's embedded **WebBrowser** component, which used the Internet Explorer rendering engine already available in Windows. This made it possible to use ordinary VB6 code for the application logic while using HTML whenever a more flexible presentation surface was useful. The embedded browser object was therefore present for a practical reason before it was ever exposed as a web browser. Local HTML pages could be generated or modified independently of the executable and then displayed directly inside the PC World interface. Text, links, images and more complex layouts were considerably easier to construct in HTML than by reproducing every element with native VB6 controls. At the same time, using the Windows browser engine avoided the need to develop a separate HTML renderer and provided a familiar rendering environment across the Windows systems for which the CDs were intended. This **VB6 + HTML/WebBrowser** model was adopted at the beginning of the project in 2004 and remained part of the architecture through the final editions in September 2005. The same embedded object was used for local interface content, Help pages and other HTML-based material. Since the application already contained a functional browser engine, extending it into an actual Internet browser required comparatively little additional work. I therefore exposed the navigation functionality as another feature of the PC World shell. It was technically simple, since the underlying browsing engine was Microsoft's rather than one written specifically for this project, but at the time it produced a useful and visually effective addition to the application. The screenshot below, from **November 2004**, shows this early browser interface identified directly in the application as **version 0.1**. It provides its own **Back, Forward, address entry, Load, Stop and Reload** controls, while the browser itself remains embedded inside the same custom PC World graphical shell.
 
 <div align="center">
 
@@ -293,43 +293,9 @@ Internet browsing was already being integrated into the interface by November 20
 
 </div>
 
-The browser provided its own navigation controls — **Back, Forward, address entry, Load, Stop and Reload** — inside the PC World graphical environment. The message displayed in the window explicitly announces that Internet navigation is available directly through the CD interface.
+The text displayed inside the interface explicitly announces that Internet navigation is available directly through the application. In practice, the same component could therefore serve two roles: it could render local HTML belonging to the CD interface or navigate to ordinary web content when given an Internet address. This dual use of the embedded browser became one of the architectural characteristics of `CD.exe`: native VB6 handled the application logic, controls, file operations and system integration, while the browser component provided a flexible HTML presentation layer and, when required, direct Internet navigation.
 
-This is an early indication of how `CD.exe` expanded beyond its initial role as a software launcher. During subsequent editions the same application accumulated additional local and network-oriented functionality while retaining the common PC World shell.
-
-### Generated program structure
-
-The runtime behavior corresponded directly to the directory structure produced for each software entry. A typical generated entry was organized as follows:
-
-```text
-PC_World\
-└── aferent\
-    └── Kit\
-        └── UT\
-            └── 0\
-                ├── Citeste_ma.txt
-                ├── Kit\
-                │   └── Kit.zip
-                ├── 0_Instalare\
-                │   └── setup.exe
-                └── 0_Rulare\
-                    └── Aplicatie.exe
-```
-
-Equivalent structures were generated for `MM`, `JC`, `IN`, `AV`, and `PR`. The numeric directory represented the indexed software entry inside its category, while the subdirectories separated the installation package, directly runnable version and optional archive.
-
-The application also created or used:
-
-```text
-C:\PC_World
-```
-
-as a local working and copy destination. Consequently, the visual controls presented to the reader were directly tied to a predictable physical structure on the CD: the interface could determine what an entry supported simply by examining the corresponding files and directories.
-
-By the middle of 2005, `CD.exe` therefore operated as considerably more than an autorun menu. It combined the software catalog, presentation layer, package-management interface, local HTML environment and an expanding set of utilities inside a single persistent graphical shell.
-
----
-
+<hr>
 
 ## 2. A custom data format - `biohazard.zulu`
 
