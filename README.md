@@ -719,15 +719,13 @@ Windows therefore did not start `CD.exe` directly when the disc was inserted. It
 
 ## 9. `Control.exe` - watchdog and fallback
 
-`Control.exe` is a small hidden helper application.
-
-Its source is only a few dozen lines long, but its purpose is interesting: it implements a primitive watchdog/fallback mechanism. It waits roughly **22 seconds** and examines:
+`Control.exe` was a very small companion program whose purpose was to detect whether the main PC World application had successfully completed its startup sequence. Although its source contains only a few dozen lines, it added a simple recovery mechanism to a CD that otherwise depended on several components working correctly, including the VB6 runtime, ActiveX controls, local HTML files, graphics resources and the main `CD.exe` executable. The program runs without presenting a normal user interface. After being started, it waits for approximately **22 seconds** and then examines a small state file created in the local PC World working directory:
 
 ```text
 C:\PC_World\control.evolutie
 ```
 
-The PC World application uses this file as a tiny state channel:
+This file acts as a primitive communication channel between the main application and the watchdog. Instead of using Windows messages, shared memory, pipes or another interprocess communication mechanism, the applications exchange a single state value through the filesystem. The preserved code uses the following states:
 
 ```text
 0 = startup/loading stage
@@ -735,11 +733,13 @@ The PC World application uses this file as a tiny state channel:
 2 = application exited
 ```
 
-If the expected success state is not detected, `Control.exe` opens:
+The mechanism is intentionally simple. During startup, the state begins at `0`. Once `CD.exe` has completed its initialization and reached the normal interactive interface, the value becomes `1`. A value of `2` records that the application has terminated. Thus, `Control.exe` waits long enough for the normal startup process to finish and then checks whether the expected operational state has been reached. If it has not, the watchdog assumes that the graphical application failed somewhere during initialization and opens:
 
 ```text
 aferent\BackUp.htm
 ```
+
+The fallback was particularly useful because the PC World interface was a hybrid application. Much of the presentation material already existed as local HTML and could be rendered using the Microsoft browser engine available in Windows. If the complete VB6 interface could not become operational, the CD could therefore fall back to a much simpler HTML based interface rather than leaving the reader with nothing more than an error or an apparently unresponsive disc.
 
 <div align="center">
 
@@ -747,9 +747,48 @@ aferent\BackUp.htm
 
 </div>
 
-as a fallback. The exact bootstrap relationship between `Start.exe` and `Control.exe` changed between archived snapshots, and not every historical source folder is synchronized with every final CD binary. That is why the repository preserves the variants instead of pretending there was a single immutable bootstrap implementation.
+The screenshot above shows the emergency interface reached through this fallback path. It preserves access to the principal PC World sections in a simpler form and demonstrates another advantage of the hybrid architecture used throughout the project. The HTML layer was not only useful for ordinary presentation inside `CD.exe`; it could also provide an independent recovery path when the native interface could not be used. From a modern perspective, using a text file as a watchdog state channel is extremely elementary, but for this application it had several practical advantages. It required no additional libraries, worked with the file operations already available in VB6, could be inspected manually during development, and remained independent of the internal state of `CD.exe`. If the main process failed before reaching its normal operating state, the external helper could still detect that condition. The approximately 22 second delay also shows that this was not intended as continuous process supervision in the modern sense. `Control.exe` was primarily a **startup watchdog**. Its task was to give the main application enough time to initialize and then decide whether the normal graphical interface had become usable. If initialization succeeded, the helper had nothing further to do. If initialization failed, it redirected the reader to the emergency HTML interface. This arrangement created two possible startup outcomes:
+
+```text
+normal startup
+
+Start.exe / bootstrap
+        |
+        v
+      CD.exe
+        |
+        v
+control.evolutie = 1
+        |
+        v
+main PC World interface
+```
+
+```text
+failed startup
+
+Start.exe / bootstrap
+        |
+        v
+      CD.exe
+        |
+        v
+expected operational state not reached
+        |
+        v
+    Control.exe
+        |
+        v
+aferent\BackUp.htm
+        |
+        v
+emergency HTML interface
+```
+
+The exact bootstrap relationship between `Start.exe`, `Control.exe` and `CD.exe` is not identical in every archived snapshot. Some source directories represent intermediate development versions, while others correspond more closely to particular monthly releases. The surviving source trees were working production copies rather than synchronized version control snapshots, so differences between source folders and final CD binaries are expected. For that reason, the repository preserves the available variants rather than reconstructing a single artificial bootstrap sequence and presenting it as definitive. What remains consistent across the preserved implementation is the underlying idea: the normal VB6 interface was the preferred execution path, while a lightweight external watchdog and local HTML page provided a second path if startup did not complete successfully.
 
 ---
+
 
 ## 10. Audio and voice feedback
 
