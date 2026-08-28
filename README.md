@@ -11,6 +11,15 @@ It is not a reconstruction based only on screenshots or executables. The archive
 > **Historical archive:** this repository intentionally preserves multiple generations of the project. Some folders contain original 2004–2005 sources, others contain later working copies or the 2026 English/Windows 11 restoration. They should not be assumed to represent one perfectly synchronized release tree.
 
 
+
+<div align="center">
+	<a href="https://github.com/Gagniuc/PC-World"><kbd><img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/macheta.png" alt="PC World | CDs"></kbd></a>
+</div>
+
+<hr>
+
+
+
 <div align="center">
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/ezgif-6fa3ae7da83254c8.gif" alt="PC World">
