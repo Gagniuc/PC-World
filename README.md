@@ -531,9 +531,7 @@ When the reader selected a program, `CD.exe` used this information to load the c
 
 The presentation data and the actual software package were deliberately kept as separate resources. A single program entry could therefore have its title and description in the generated data file, one or more GIF images for visual presentation, an installer executable, a directly runnable version, a ZIP archive, and an optional text file. Not every entry needed to contain every type of resource. `CD.exe` checked what was actually available and adapted the interface accordingly.
 
-This file-based organization was particularly useful for monthly production. Most of the application engine could remain unchanged while the programs, descriptions, captures and installation packages were replaced for the next issue. The directory structure effectively served as a lightweight content database: filenames, numerical indexes and predefined locations established the relationships that a conventional database would normally store in records and fields.
-
-Consequently, the material presented to the reader was assembled at runtime from several independent components — generated textual metadata, indexed images and the corresponding software files — rather than from a separate hard-coded interface created for every program on every CD.
+This file-based organization was particularly useful for monthly production. Most of the application engine could remain unchanged while the programs, descriptions, captures and installation packages were replaced for the next issue. The directory structure effectively served as a lightweight content database: filenames, numerical indexes and predefined locations established the relationships that a conventional database would normally store in records and fields. Consequently, the material presented to the reader was assembled at runtime from several independent components, generated textual metadata, indexed images and the corresponding software files - rather than from a separate hard-coded interface created for every program on every CD.
 
 ---
 
