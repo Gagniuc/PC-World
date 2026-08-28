@@ -255,7 +255,7 @@ In addition to these actions, the interface displayed the program description an
 
 ### Magazine and supplementary content
 
-The interface also presented material associated with the magazine itself. The July 2005 example below lists applications supplied in the `Revista` section (`revista` is Romanian for **magazine**) together with their package sizes. The reader could therefore browse software associated with the corresponding magazine issue directly from the same environment, without manually searching through the CD directory tree.
+The interface also included a dedicated `Revista` section for software associated directly with the printed PC World issue. The term `revista` is Romanian for **magazine**, and in this context it identified a separate group of applications that accompanied editorial material published in the corresponding issue. These programs were stored in their own `Revista` directory on the CD and were presented together with their names and package sizes. Unlike the main software categories, this section was closely tied to the contents of the printed publication. The interface did not attempt to reproduce the complete editorial description of every listed program; instead, it provided direct access to the software while the magazine supplied the detailed explanation, context and related article material.
 
 <div align="center">
 
@@ -263,14 +263,7 @@ The interface also presented material associated with the magazine itself. The J
 
 </div>
 
-<br>
-
-The distinction between the main software categories and the `Revista` material also allowed each monthly disc to contain both the regular curated software collection and additional programs associated with articles or material published in that issue.
-
-
-The interface also presented software associated directly with the printed magazine. The July 2005 example below lists applications stored in the `Revista` directory — `revista` is Romanian for **magazine** — together with their package sizes. As stated directly in the interface, these programs could be found on the CD in the `Revista` directory, while their detailed descriptions were published separately in the pages of the corresponding PC World issue.
-
-In this way, the CD interface acted as a direct companion to the printed magazine: the reader could identify and access the software from the disc while referring to the magazine for the full descriptions and related editorial material.
+The text visible directly in the July 2005 interface explains this relationship explicitly: the listed programs could be found on the CD in the `Revista` directory, while their detailed descriptions could be read in the pages of the magazine. The screenshot therefore documents how the software interface and the printed publication were designed to be used together rather than as completely independent products. This created a direct link between the physical magazine and its companion CD. The magazine provided the editorial description and context, while the CD supplied the corresponding executable packages. The `Revista` section acted as the bridge between the two, allowing the reader to locate the software mentioned in the issue without manually browsing the disc directory structure.
 
 <hr>
 
@@ -284,9 +277,9 @@ Some parts of the interface were implemented as local HTML documents displayed i
 
 </div>
 
-The help text itself describes several interface behaviors. It explains that selecting categories presents the corresponding software titles, selecting a title displays both the program capture and its description, and clicking an image in the `Captura` area enlarges it. The HTML layer therefore functioned as part of the actual application interface rather than only as static documentation.
+<br>
 
-This hybrid architecture made it possible to modify substantial amounts of presentation content between editions without rebuilding every visual element directly as a VB6 form.
+The help text itself describes several interface behaviors. It explains that selecting categories presents the corresponding software titles, selecting a title displays both the program capture and its description, and clicking an image in the `Captura` area enlarges it. The HTML layer therefore functioned as part of the actual application interface rather than only as static documentation. This hybrid architecture made it possible to modify substantial amounts of presentation content between editions without rebuilding every visual element directly as a VB6 form.
 
 <hr>
 
