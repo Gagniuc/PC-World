@@ -158,66 +158,7 @@ The historical application itself refers to the CD assembly operation as a **"co
 
 ## 1. The main PC World application - `CD.exe`
 
-
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20025905.png" />
-
-</div>
-
-
-<hr>
-
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/ezgif-1cb34aa39924a704.gif" alt="PC World">
-
-</div>
-
-<hr>
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/ezgif-190210b98f2adce4.gif" alt="PC World">
-
-</div>
-
-<hr>
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Aug_2005/Screenshot%202026-08-26%20052827.png" alt="PC World">
-
-</div>
-
-<hr>
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/captura%20(I).png" alt="PC World">
-
-</div>
-
-<hr>
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/bandicam%202026-08-26%2003-20-27-017.jpg" alt="PC World">
-
-</div>
-
-<hr>
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Nov_2004/Screenshot%202026-08-26%20012020.png" alt="PC World">
-
-</div>
-
-
-One preserved August 2005 project identifies the main program as:
+`CD.exe` was the central application executed by the reader after the CD startup sequence. It provided the common graphical environment from which the contents of each edition could be explored and used. Rather than presenting the disc as a collection of folders, the application organized the material into software categories, descriptions, captures, installation and execution functions, magazine-related content, help pages and, in later builds, additional system and network utilities. One preserved August 2005 project identifies the main program as:
 
 ```text
 Project name:        PC_World
@@ -229,7 +170,7 @@ Company metadata:    www.NovusOrdo.ro
 Copyright metadata:  Paul Gagniuc
 ```
 
-The main application is a custom-skinned desktop shell rather than a conventional Windows form. Its interface contains the main software categories:
+The application used a custom-skinned interface rather than standard Windows controls as its visual identity. The main software areas were mapped internally to short category identifiers:
 
 ```text
 UT  = Utilitare
@@ -240,21 +181,125 @@ AV  = Antivirus
 PR  = Permanente
 ```
 
-The source allocates indexed program slots from `0` to `18`. Historical comments refer to an 18-program-per-section limit, while the arrays themselves contain 19 indexes; this is one of several small inconsistencies preserved exactly as they existed in the working sources.
+The source allocates indexed program slots from `0` to `18`. Historical comments refer to an 18-program-per-section limit, while the arrays themselves contain 19 indexes; this discrepancy is preserved in the original working sources. These identifiers were not only internal category codes; they also corresponded to directories on the physical CD where the installation packages for the programs presented by the interface were stored. Each category therefore had a direct relationship between the menu shown to the user and the underlying directory structure containing installers, runnable applications, archives and supplementary files. The repository does not include the original third-party installation kits distributed on the 16 PC World CDs. A complete preservation of those packages would require roughly the capacity of the original discs themselves - up to about 16 × 650 MB (i.e., roughly 10.4 GB in total) for CDs that were typically filled close to capacity, and would also introduce unnecessary third-party software and licensing material into the source archive. Instead, the preserved directory structures use very small dummy executables, approximately 2 KB in size, wherever an original setup program would otherwise have been required. When executed, the placeholder simply displays: “This dummy file is a placeholder for the setup file of the application described. The original setup file was too large, so it has been replaced with this file.” This keeps the original directory layout and interface behavior testable without storing the full software payload of the historical CDs.
+
+
+### Application startup
+
+Before presenting the main interface, some editions displayed a dedicated loading screen. The May 2005 build shown below reports the initialization sequence directly to the user: loading application information, checking fonts, validating directories, reading the configuration database, initializing the graphics engine, checking presentation and image files, and finally reporting that the program is operational. A progress indicator at the bottom follows the same startup process.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20025905.png" />
+
+</div>
+
+This startup display also illustrates an important characteristic of the program: the interface depended on a structured collection of external resources rather than having all monthly content compiled permanently into the executable. The same application engine could therefore be reused while the accompanying descriptions, images, installers and other resources changed from one edition to another.
+
+<hr>
+
+### Main interface
+
+After initialization, the reader entered the main PC World environment. The upper navigation bar provided direct access to the principal categories and sections, while the large central area changed according to the selected function.
+
+The June 2005 interface below shows the standard layout that had become established by this stage of development: the main category bar at the top, a large presentation area in the center, persistent sound controls, and the PC World identity panel in the lower-right part of the interface.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/ezgif-1cb34aa39924a704.gif" alt="PC World">
+
+</div>
+
+The central presentation surface was deliberately dynamic. Depending on the selected section it could contain introductory artwork, program information, HTML content, captures, lists of applications or other edition-specific material. This allowed the same outer interface to serve several substantially different functions without opening a collection of unrelated Windows dialogs.
+
+<hr>
+
+### Program presentation and software operations
+
+Selecting a program replaced the central page with a dedicated software-information view. The program description appeared on the left, while a corresponding capture was displayed inside the large circular monitor on the right.
+
+The June 2005 example below presents **Cossacks: Napoleonic Wars**. The interface shows a textual description, platform and software type, the associated image, and the actions available for that particular entry.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/ezgif-190210b98f2adce4.gif" alt="PC World">
+
+</div>
+
+The same mechanism was reused for very different kinds of software. The August 2005 capture below shows **Download Accelerator Plus** in the Internet category, using the same description/capture layout.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Aug_2005/Screenshot%202026-08-26%20052827.png" alt="PC World">
+
+</div>
+
+The application did not assume that every program supplied on the CD had the same packaging. For each entry it checked which associated resources were present and enabled only the operations that could actually be performed.
 
 ### Runtime behavior
 
-For each software entry, the interface can dynamically determine which operations are available:
+For each software entry, the interface could dynamically provide:
 
-- **Install** — launches the program's `setup.exe`;
-- **Run** — launches a directly runnable `Aplicatie.exe`, if present;
-- **Copy** — copies the package to a location selected by the user;
-- **Read** — displays an optional `Citeste_ma.txt`;
-- displays the program description and associated capture;
-- calculates and displays the package size;
-- disables controls for resources that do not exist.
+- **Install** — launch the program's `setup.exe`;
+- **Run** — launch a directly executable `Aplicatie.exe`, when present;
+- **Copy** — copy the package from the CD to a location selected by the user;
+- **Read** — open the optional `Citeste_ma.txt`;
+- display the program description;
+- display its associated capture;
+- calculate and display the package size;
+- disable operations for files that were not supplied with that particular entry.
 
-A typical generated program path is:
+This allowed installers, portable applications, ZIP packages and documentation-only resources to coexist under the same interface without requiring separate launcher code for each program.
+
+<hr>
+
+### Magazine and supplementary content
+
+The interface also presented material associated with the magazine itself. The July 2005 example below lists applications supplied in the `Revista` section together with their package sizes. The reader could therefore browse magazine-related software from inside the same environment instead of manually searching the CD directory tree.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/captura%20(I).png" alt="PC World">
+
+</div>
+
+The distinction between the main software categories and the `Revista` material also allowed each monthly disc to contain both the regular curated software collection and additional programs associated with articles or material published in that issue.
+
+<hr>
+
+### Integrated HTML presentation and help system
+
+Some parts of the interface were implemented as local HTML documents displayed inside the application. The June 2005 Help page below is one example. It is visually integrated into the PC World skin but provides formatted text, links and scrolling through the embedded browser component.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jun_2005/CD1/bandicam%202026-08-26%2003-20-27-017.jpg" alt="PC World">
+
+</div>
+
+The help text itself describes several interface behaviors. It explains that selecting categories presents the corresponding software titles, selecting a title displays both the program capture and its description, and clicking an image in the `Captura` area enlarges it. The HTML layer therefore functioned as part of the actual application interface rather than only as static documentation.
+
+This hybrid architecture made it possible to modify substantial amounts of presentation content between editions without rebuilding every visual element directly as a VB6 form.
+
+<hr>
+
+### Built-in web browser
+
+Internet browsing was already being integrated into the interface by November 2004. The screenshot below shows an early custom browser identified directly in the interface as **version 0.1**.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Nov_2004/Screenshot%202026-08-26%20012020.png" alt="PC World">
+
+</div>
+
+The browser provided its own navigation controls — **Back, Forward, address entry, Load, Stop and Reload** — inside the PC World graphical environment. The message displayed in the window explicitly announces that Internet navigation is available directly through the CD interface.
+
+This is an early indication of how `CD.exe` expanded beyond its initial role as a software launcher. During subsequent editions the same application accumulated additional local and network-oriented functionality while retaining the common PC World shell.
+
+### Generated program structure
+
+The runtime behavior corresponded directly to the directory structure produced for each software entry. A typical generated entry was organized as follows:
 
 ```text
 PC_World\
@@ -271,9 +316,20 @@ PC_World\
                     └── Aplicatie.exe
 ```
 
-Equivalent structures are generated for `MM`, `JC`, `IN`, `AV`, and `PR`. The application also creates/uses `C:\PC_World` as a local working/copy destination.
+Equivalent structures were generated for `MM`, `JC`, `IN`, `AV`, and `PR`. The numeric directory represented the indexed software entry inside its category, while the subdirectories separated the installation package, directly runnable version and optional archive.
+
+The application also created or used:
+
+```text
+C:\PC_World
+```
+
+as a local working and copy destination. Consequently, the visual controls presented to the reader were directly tied to a predictable physical structure on the CD: the interface could determine what an entry supported simply by examining the corresponding files and directories.
+
+By the middle of 2005, `CD.exe` therefore operated as considerably more than an autorun menu. It combined the software catalog, presentation layer, package-management interface, local HTML environment and an expanding set of utilities inside a single persistent graphical shell.
 
 ---
+
 
 ## 2. A custom data format - `biohazard.zulu`
 
