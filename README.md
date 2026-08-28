@@ -831,9 +831,10 @@ The screenshot shows a scan of `192.168.1.5` beginning at port `1` and progressi
 
 <hr>
 
-### Standalone high speed TCP/IP scanner
 
-A second preserved interface presents the port scanner as a more compact standalone utility titled **TCP/IP Scanner de viteza**. It follows the same basic principle, but presents the progress and results in its own dedicated window.
+### Complete TCP port scan
+
+The screenshot below isolates the port scanner window in order to show the result of a complete scan more clearly. It is not a separate or standalone scanner. The same TCP scanning component shown above is presented here after completing a scan of the target `192.168.1.5` across the full port range, from port `1` to port `65536`. The result window records each detected open port together with the time at which it was found. When the port number corresponds to a known service, the scanner also displays its name.
 
 <div align="center">
 
@@ -841,13 +842,14 @@ A second preserved interface presents the port scanner as a more compact standal
 
 </div>
 
-In this example, the scanner again targets `192.168.1.5` across the full port range. Open ports are written to the result area together with timestamps and, when recognized, the corresponding service names. The screenshot records ports such as `135`, `139`, `445`, `623`, `5040` and `16992`. The existence of both the integrated scanner window and this standalone presentation reflects the way these functions evolved during development. The archive preserves several working forms rather than one artificially normalized final implementation.
+In this example, ports `135`, `139` and `445` are identified respectively as **DCE endpoint resolution**, **NETBIOS Session Service** and **Microsoft DS**. Other detected ports, including `623`, `5040` and `16992`, are reported as open even when the application does not have a corresponding service name in its internal list. The first line records the target address, the requested port range and the scan start time, while the final line reports that the scan has completed and records the completion time. The status bar at the bottom also shows the current port during execution. This capture therefore provides a more complete view of the information produced by the port scanner during an actual full range scan.
+
 
 <hr>
 
 ### IP range scanner
 
-The project also contains a separate **Scanner IP de precizie**. Instead of testing many ports on one machine, this utility examines a range of IP addresses while testing one selected TCP port.
+The project also contains a separate **Scanner IP de precizie**. Instead of testing many ports on one machine, this utility examines a range of IP addresses while testing one selected TCP port. This utility complements the TCP port scanner by reversing the scanning logic. Instead of probing many ports on one host, it probes one selected port across many IP addresses. The purpose was to identify systems exposing a specific service within a given address interval, making the tool suitable for simple local-network discovery and service-oriented host enumeration. The screenshot below shows the preserved **Scanner IP de precizie** interface. The user provides the start and end IP addresses as separate octets and selects the target port to be tested. During execution, the application advances through the requested range and writes the results to the log window, reporting which hosts respond on the selected port.
 
 <div align="center">
 
@@ -867,7 +869,7 @@ The start and end addresses are entered as four separate octets. In the preserve
 
 ### Inter Server v1.0 beta
 
-The most substantial network component was **Inter Server v1.0 beta**, a small HTTP server implemented directly in Visual Basic 6.
+The most substantial network component was **Inter Server v1.0 beta**, a small HTTP server implemented directly in Visual Basic 6. The server interface allowed the user to select a root directory and choose the TCP port on which the HTTP service would listen. Port `80` was used by default. A directory tree on the right side of the window provided direct selection of the server root, while the main panel displayed the active configuration, connection status and transfer information. The screenshot shows the server pointed directly into the preserved PC World directory structure, with the `aferent` directory visible in the selected tree.
 
 <div align="center">
 
@@ -875,13 +877,13 @@ The most substantial network component was **Inter Server v1.0 beta**, a small H
 
 </div>
 
-The server interface allowed the user to select a root directory and choose the TCP port on which the HTTP service would listen. Port `80` was used by default. A directory tree on the right side of the window provided direct selection of the server root, while the main panel displayed the active configuration, connection status and transfer information. The screenshot shows the server pointed directly into the preserved PC World directory structure, with the `aferent` directory visible in the selected tree. This allowed material normally consumed locally by `CD.exe` to be exposed through HTTP instead. The implementation uses Winsock to accept incoming connections, process HTTP requests, construct response headers, resolve requested paths under the selected root directory and transmit the corresponding files. It therefore operated as a small standalone web server without requiring Apache, IIS or another external server package. One practical use was to share the contents of the PC World CD with another computer on the same network. The machine containing the CD could run Inter Server, select the relevant directory as the server root, and make those files available to a browser on another system.
+This allowed material normally consumed locally by `CD.exe` to be exposed through HTTP instead. The implementation uses Winsock to accept incoming connections, process HTTP requests, construct response headers, resolve requested paths under the selected root directory and transmit the corresponding files. It therefore operated as a small standalone web server without requiring Apache, IIS or another external server package. One practical use was to share the contents of the PC World CD with another computer on the same network. The machine containing the CD could run Inter Server, select the relevant directory as the server root, and make those files available to a browser on another system.
 
 <hr>
 
 ### Browsing the PC World content through HTTP
 
-The final screenshot shows the other side of this mechanism. **Inter Server v1.0 beta** is running locally, while a standard web browser connects to `localhost` and receives a PC World page generated from the served content.
+The final screenshot shows the other side of this mechanism. **Inter Server v1.0 beta** is running locally, while a standard web browser connects to `localhost` and receives a PC World page generated from the served content. The page identifies itself as **PC World Web Server** and **Inter Server v1.0 beta**. It exposes the software catalog through an HTML interface containing a category selector, a list of programs, a description field and the capture associated with the selected entry. 
 
 <div align="center">
 
@@ -889,7 +891,7 @@ The final screenshot shows the other side of this mechanism. **Inter Server v1.0
 
 </div>
 
-The page identifies itself as **PC World Web Server** and **Inter Server v1.0 beta**. It exposes the software catalog through an HTML interface containing a category selector, a list of programs, a description field and the capture associated with the selected entry. In the example, **Imperial Glory** is selected and its image and textual description are displayed in the browser. This is significant because the HTTP server reused the same content model already employed by the local CD application. Program names, descriptions and presentation images were not restricted to the native VB6 shell. The same material could also be presented through HTML and delivered to another browser over the network. The two access paths can be summarized as follows:
+In the example, **Imperial Glory** is selected and its image and textual description are displayed in the browser. This is significant because the HTTP server reused the same content model already employed by the local CD application. Program names, descriptions and presentation images were not restricted to the native VB6 shell. The same material could also be presented through HTML and delivered to another browser over the network. The two access paths can be summarized as follows:
 
 <div align="center">
 
