@@ -539,18 +539,7 @@ Consequently, the material presented to the reader was assembled at runtime from
 
 ## 6. The CD Maker / "Generator Matrita"
 
-The generator is one of the most important parts of this repository.
-
-
-<div align="center">
-
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/intro.png">
-
-</div>
-
-
-
-A preserved project identifies it as:
+The generator is one of the central components of the entire PC World production system because it was responsible for transforming the material prepared for a new issue into the complete directory structure of a finished companion CD. Instead of rebuilding the disc manually every month, the generator automated the repetitive parts of the process and produced a standardized output tree ready for testing and, eventually, duplication. A preserved project identifies it as:
 
 ```text
 Project name:       GenerareMatrita
@@ -560,6 +549,7 @@ Historical path:    E:\MADALIN\Generator_Matrita
 Language:           Visual Basic 6.0
 ```
 
+The historical path is itself useful evidence of how the program was used in practice. The generator was maintained as a dedicated production tool for the PC World workflow rather than as a generic utility. Its purpose was to take the material selected for a particular issue, including software packages, descriptions, captures, magazine pages, drivers, sounds, graphics and configuration choices, and assemble them into a new directory named `Matrita`. The term **"Matrita"** literally means **"master/template"** in Romanian. In this project it referred to the complete master directory from which the physical CD could be produced. The generator therefore sat between content preparation and disc duplication. It converted editorial and software material into the exact filesystem structure expected by `CD.exe`, `Start.exe`, `Control.exe` and the rest of the runtime environment.
 
 <div align="center">
 
@@ -567,33 +557,62 @@ Language:           Visual Basic 6.0
 
 </div>
 
-The historical development path is itself a useful artifact: the project was explicitly maintained as a generator intended for the PC World production workflow. The generator accepts the material for a monthly CD and creates a directory named `Matrita`.
+The generator interface provided the controls required to prepare a monthly edition without manually creating every directory and file. Program titles and descriptions could be entered, categories enabled or disabled, screenshots selected, installation packages assigned, graphics chosen and supplementary material added. Once the required content had been supplied, the generator reproduced the expected directory hierarchy and generated the metadata consumed later by the runtime application. This was particularly important because the final CD was not simply a folder containing executables. `CD.exe` expected a specific relationship between category names, numeric program indexes, captures, descriptions, installers, ZIP archives, HTML pages and configuration files. The generator encoded those conventions into the production tool itself, reducing the possibility of assembling each monthly issue differently by mistake.
 
-### Its build process includes
+### Generation workflow
 
-1. validating required fields and enabled sections;
-2. building the menu lists and description lists;
-3. generating `biohazard.zulu`;
-4. generating feature metadata in `biohazard.gama`;
-5. generating monthly HTML such as Intro, Help, Magazine and Drivers pages;
-6. creating the complete `PC_World\aferent` directory hierarchy;
-7. creating category trees for `UT`, `MM`, `JC`, `IN`, `AV`, and `PR`;
-8. creating indexed package directories;
-9. copying screenshots/captures;
-10. copying installers and optional ZIP packages;
-11. writing `Citeste_ma.txt` files;
-12. copying driver packages;
-13. copying the selected background/advertising graphics;
-14. copying WAV files and optional monthly background music;
-15. copying the PC World wallpaper;
-16. copying the optional magazine archive spreadsheet (`arhiva.xls`);
-17. copying VB6/runtime dependencies and fonts;
-18. copying the application executable;
-19. writing/copying `AUTORUN.INF`.
+During a build, the generator first validates the required fields and determines which sections and features are enabled for the current edition. It then constructs the menu and description data used by `CD.exe` and writes the custom configuration files `biohazard.zulu` and `biohazard.gama`. The same process creates the corresponding HTML material for sections such as **Intro**, **Help**, **Magazine** and **Drivers**, followed by the complete `PC_World\aferent` hierarchy used by the runtime. Category directories are generated for `UT`, `MM`, `JC`, `IN`, `AV` and `PR`, together with the indexed subdirectories associated with individual programs.
 
-The resulting directory tree was then suitable for the final CD production/burning stage. The generator also includes preview forms, capture forms, folder browsing, graphics handling, HTML generation, GIF support and a custom interface button editor. This was the component I created so that the monthly edition could, in principle, be assembled by filling in the content rather than manually reproducing the entire CD structure every time.
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/intro.png">
+
+</div>
+
+For each software entry, the generator can copy the appropriate presentation image, installer, directly runnable executable, ZIP archive and optional `Citeste_ma.txt` documentation. It also handles resources that apply to the entire edition rather than to one program, including driver packages, backgrounds, advertising graphics, WAV files, optional background music, the PC World wallpaper and the optional magazine archive spreadsheet `arhiva.xls`. The final stage adds the components required for the CD to execute correctly on the target Windows systems. These include the principal application executable, supporting programs, VB6 runtime dependencies, fonts and `AUTORUN.INF`. The resulting `Matrita` directory therefore contains both the editorial and software content of the current issue and the complete runtime environment required to present that content to the reader.
+
+Conceptually, the process was:
+
+```text
+monthly material
+      |
+      ├── program titles and descriptions
+      ├── installers and ZIP packages
+      ├── screenshots and graphics
+      ├── magazine and driver material
+      ├── sounds and music
+      └── configuration choices
+      |
+      v
+Generare Matrita / Set.exe
+      |
+      ├── validates content
+      ├── generates metadata
+      ├── generates HTML
+      ├── creates directory hierarchy
+      ├── copies program resources
+      └── copies runtime components
+      |
+      v
+Matrita
+      |
+      v
+complete CD master
+      |
+      v
+testing / burning / duplication
+```
+
+The generator also contains functionality that goes beyond simple file copying. The preserved project includes preview forms, capture selection tools, directory browsing, graphics handling, HTML generation, GIF support and a custom interface button editor. These features allowed much of the monthly production work to be performed from inside the same application rather than by manually preparing every file with separate tools.
+
+In practical terms, `Generare Matrita` was the production counterpart of `CD.exe`. `CD.exe` interpreted and displayed the finished structure, while `Set.exe` created that structure in the first place. The two applications were therefore designed around the same conventions: category codes, numeric program indexes, predictable filenames, generated metadata and fixed directory locations.
+
+The generator was created so that a new issue could, in principle, be produced primarily by supplying the new monthly content and allowing the program to reconstruct the standard PC World CD environment automatically. This became increasingly useful as the interface accumulated more resources and functionality, because manually reproducing the complete structure for every edition would have been both slower and more prone to errors.
+
+The word **"compilation"** appears in the historical generator interface, but in this context it refers to assembling the CD master rather than recompiling the Visual Basic source code. The operation consisted of generating metadata and HTML, creating directories, copying resources and placing the already compiled runtime executables into the final `Matrita` tree. The completed `Matrita` directory was then the master used for the final CD production stage.
 
 ---
+
 
 ## 7. The `Geneza` base template
 
