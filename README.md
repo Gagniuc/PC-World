@@ -32,25 +32,7 @@ The scrolling effect was generated programmatically. The message was first rende
 
 ## Historical background
 
-The project started almost by accident.
-
-In 2004 I went to **ICI** to register the domain `novusordo.ro`. At that time Romanian `.ro` domains were commonly sold under a one-time/lifetime registration model. On the same floor, close to the office where domain payments were handled, there was also a **PC World Romania** office.
-
-On my way out I met **Madalin Lacraru**, who was leaving the PC World office. Out of curiosity I asked whether the magazine might be interested in distributing **Delta Memory Force V2.0**, one of my software projects. He told me that, in principle, this could be possible.
-
-I then offered something else: I could build the complete software interface for the PC World companion CDs, free of charge, partly to make the proposed Delta Memory Force distribution more attractive to them. A few days later Madalin called and asked whether I still wanted to do it.
-
-The first interface was a test. I created the interface for the **October 2004** CD, after which Madalin and the PC World director approved the result. That test became the first published CD produced with my interface.
-
-What initially looked like a single interface quickly became a complete monthly production system. For exactly one year I designed and maintained the launcher, interface, graphics, content structure and CD assembly process. I eventually also wrote a dedicated **CD template generator** so that a new edition could theoretically be assembled without manually rebuilding the whole structure.
-
-In practice, Madalin usually preferred to come to me each month and take the finished CD image/tree rather than operate the generator himself. The generator was straightforward for me because I had written it, but it still represented a fairly specialized production workflow.
-
-I did all of this without payment. At that age I was more interested in the fact that something I had written would be duplicated and distributed in tens of thousands of copies than in treating the work as a commercial software contract, even though I was very short of money at the time.
-
-By the autumn of 2005 I had started working at the **Romanian Ministry of Agriculture** and no longer had enough time to continue the monthly PC World production cycle. My last work in this sequence belongs to the **September 2005** generation.
-
-The result of that year is what this repository preserves.
+The project started almost by accident. In 2004 I went to **ICI** to register the domain `novusordo.ro`. At that time Romanian `.ro` domains were commonly sold under a one-time/lifetime registration model. On the same floor, close to the office where domain payments were handled, there was also a **PC World Romania** office. On my way out I met **Madalin Lacraru**, who was leaving the PC World office. Out of curiosity I asked whether the magazine might be interested in distributing **Delta Memory Force V2.0**, one of my software projects. He told me that, in principle, this could be possible. I then offered something else: I could build the complete software interface for the PC World companion CDs, free of charge, partly to make the proposed Delta Memory Force distribution more attractive to them. A few days later Madalin called and asked whether I still wanted to do it. The first interface was a test. I created the interface for the **October 2004** CD, after which Madalin and the PC World director approved the result. That test became the first published CD produced with my interface. What initially looked like a single interface quickly became a complete monthly production system. For exactly one year I designed and maintained the launcher, interface, graphics, content structure and CD assembly process. I eventually also wrote a dedicated **CD template generator** so that a new edition could theoretically be assembled without manually rebuilding the whole structure. In practice, Madalin usually preferred to come to me each month and take the finished CD image/tree rather than operate the generator himself. The generator was straightforward for me because I had written it, but it still represented a fairly specialized production workflow. I did all of this without payment. At that age I was more interested in the fact that something I had written would be duplicated and distributed in tens of thousands of copies than in treating the work as a commercial software contract, even though I was very short of money at the time. By the autumn of 2005 I had started working at the **Romanian Ministry of Agriculture** and no longer had enough time to continue the monthly PC World production cycle. My last work in this sequence belongs to the **September 2005** generation. The result of that year is what this repository preserves.
 
 ---
 
