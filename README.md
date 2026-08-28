@@ -293,19 +293,21 @@ The browser functionality grew directly out of the hybrid architecture chosen fo
 
 </div>
 
+<br>
+
 The text displayed inside the interface explicitly announces that Internet navigation is available directly through the application. In practice, the same component could therefore serve two roles: it could render local HTML belonging to the CD interface or navigate to ordinary web content when given an Internet address. This dual use of the embedded browser became one of the architectural characteristics of `CD.exe`: native VB6 handled the application logic, controls, file operations and system integration, while the browser component provided a flexible HTML presentation layer and, when required, direct Internet navigation.
 
 <hr>
 
 ## 2. A custom data format - `biohazard.zulu`
 
-The monthly menus are not hard-coded into a separately compiled executable. Instead, the generator writes a small custom text database named:
+The monthly software catalog was not hard-coded directly into a newly compiled executable for every issue. Instead, `CD.exe` acted as a reusable runtime engine, while the actual contents of each edition were described by an external text database generated during preparation of the CD. The main file used for this purpose was:
 
 ```text
 aferent\biohazard.zulu
 ```
 
-Despite the intentionally playful filename, the preserved implementation is essentially a tag-delimited manifest. Its structure includes blocks such as:
+This file contained the software lists, category boundaries and descriptive text required by the interface. Changing the contents of a monthly edition therefore did not require rewriting the application logic itself. The generator could create a new data file for the current issue, place the corresponding software packages and images in the expected directories, and reuse the same `CD.exe` engine. In practical terms, `biohazard.zulu` functioned as a small custom manifest/database format. It was plain text, but it used explicit tags and terminating markers so that the VB6 application could locate individual sections without requiring an external database engine, XML parser or additional dependency. Its general structure included blocks such as:
 
 ```text
 [MENIURI]
@@ -345,15 +347,99 @@ Despite the intentionally playful filename, the preserved implementation is esse
 [Rupere-de-nori-STOP]
 ```
 
-At startup, `CD.exe` reads the entire file in binary mode and then parses it with `InStr`, `Mid`, `Replace`, and the section delimiters above. This allowed the same compiled `CD.exe` engine to be reused from one month to another while changing the software list and descriptions through generated data. The generator also produces:
+The first group of blocks describes the entries belonging to the principal software categories. Their names correspond directly to the categories visible in the interface:
+
+```text
+[UTILITARE]     -> UT
+[MULTIMEDIA]    -> MM
+[JOCURI]        -> JC
+[INTERNET]      -> IN
+[ANTIVIRUS]     -> AV
+[PERMANENTE]    -> PR
+```
+
+Each section has an explicit terminating marker such as `[UT-STOP]`, `[MM-STOP]`, or `[AV-STOP]`. This gave the parser clear boundaries from which it could extract the corresponding portion of the file. The later blocks contain additional information associated with those entries, including the descriptions displayed inside the main interface. Entries could be indexed explicitly, for example:
+
+```text
+[0]Program description[STOP]
+[1]Another program description[STOP]
+```
+
+The numeric index corresponds to the software slot used internally by `CD.exe`. This is how a menu entry, its description, its capture and the corresponding directory on the CD could be associated without compiling those values permanently into the program.
+
+### Parsing
+
+At startup, `CD.exe` reads the complete `biohazard.zulu` file and parses it using ordinary Visual Basic string operations such as:
+
+```text
+InStr
+Mid
+Replace
+```
+
+The program searches for the section markers, identifies their start and stop positions, extracts the enclosed text and then uses the resulting values to construct the interface dynamically. The parser was intentionally simple. No SQL engine, registry database or external parser was required; the format could be produced directly by the CD generator and interpreted using functionality already available in Visual Basic 6. Conceptually, the runtime process was:
+
+```text
+biohazard.zulu
+      |
+      v
+read complete file
+      |
+      v
+locate section tags
+      |
+      v
+extract menu entries and descriptions
+      |
+      v
+associate entries with indexed CD directories
+      |
+      v
+populate the PC World interface
+```
+
+This separation between **application logic** and **monthly content** was important to the production workflow. The executable could remain largely unchanged while the generator produced a different catalog for October, November, December and the subsequent 2005 editions. New programs, descriptions and category contents could therefore be introduced primarily by changing generated data and resources rather than modifying and recompiling the complete interface for every CD.
+
+### Format restrictions
+
+Because the format relied on characters embedded directly in the text as structural delimiters, some characters could not safely appear in arbitrary user-entered fields. The generator therefore contains validation code that rejects characters such as:
+
+```text
+[  ]  '  "  #  |
+```
+
+These restrictions were not cosmetic. Allowing delimiter characters inside program names or descriptions could interfere with the parser and cause part of the text to be interpreted as structural metadata instead of ordinary content. This is one of the characteristic limitations of the home-grown format: it was compact and easy to generate, but the syntax and the stored content were not completely independent. The generator had to protect the data format by preventing input that could collide with its control characters.
+
+### `biohazard.gama`
+
+The generator also produces a second small metadata file:
 
 ```text
 biohazard.gama
 ```
 
-from the `Activat()` feature array. It stores disabled/selected feature indexes as compact metadata and is preserved as part of the generated template system. One practical consequence of this home-grown format is visible in the generator validation code: characters such as `[`, `]`, `'`, `"`, `#`, and `|` are rejected in certain text fields because they could collide with the internal delimiters.
+This file is associated with the generator's `Activat()` feature array and stores selected or disabled feature indexes in a compact form. It allowed the generated CD configuration to indicate which interface elements or functions should be active for a particular build. Together, `biohazard.zulu` and `biohazard.gama` formed a lightweight configuration layer between the CD-generation software and `CD.exe`:
+
+```text
+CD generator
+    |
+    +-- biohazard.zulu  -> menus, entries, descriptions
+    |
+    +-- biohazard.gama  -> feature-state metadata
+    |
+    +-- program directories, captures and resources
+                |
+                v
+              CD.exe
+                |
+                v
+        generated monthly interface
+```
+
+The result was a data-driven architecture in which one VB6 runtime could interpret the configuration and resources prepared for each monthly edition. For a 2004-2005 desktop application distributed entirely from CD-ROM, this provided a relatively simple way to separate the reusable application engine from the material that changed every month.
 
 ---
+
 
 ## 3. Hybrid native/HTML interface
 
