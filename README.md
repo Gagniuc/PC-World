@@ -749,41 +749,11 @@ The fallback was particularly useful because the PC World interface was a hybrid
 
 The screenshot above shows the emergency interface reached through this fallback path. It preserves access to the principal PC World sections in a simpler form and demonstrates another advantage of the hybrid architecture used throughout the project. The HTML layer was not only useful for ordinary presentation inside `CD.exe`; it could also provide an independent recovery path when the native interface could not be used. From a modern perspective, using a text file as a watchdog state channel is extremely elementary, but for this application it had several practical advantages. It required no additional libraries, worked with the file operations already available in VB6, could be inspected manually during development, and remained independent of the internal state of `CD.exe`. If the main process failed before reaching its normal operating state, the external helper could still detect that condition. The approximately 22 second delay also shows that this was not intended as continuous process supervision in the modern sense. `Control.exe` was primarily a **startup watchdog**. Its task was to give the main application enough time to initialize and then decide whether the normal graphical interface had become usable. If initialization succeeded, the helper had nothing further to do. If initialization failed, it redirected the reader to the emergency HTML interface. This arrangement created two possible startup outcomes:
 
-```text
-normal startup
+<div align="center">
 
-Start.exe / bootstrap
-        |
-        v
-      CD.exe
-        |
-        v
-control.evolutie = 1
-        |
-        v
-main PC World interface
-```
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/start.png" alt="PC World">
 
-```text
-failed startup
-
-Start.exe / bootstrap
-        |
-        v
-      CD.exe
-        |
-        v
-expected operational state not reached
-        |
-        v
-    Control.exe
-        |
-        v
-aferent\BackUp.htm
-        |
-        v
-emergency HTML interface
-```
+</div>
 
 The exact bootstrap relationship between `Start.exe`, `Control.exe` and `CD.exe` is not identical in every archived snapshot. Some source directories represent intermediate development versions, while others correspond more closely to particular monthly releases. The surviving source trees were working production copies rather than synchronized version control snapshots, so differences between source folders and final CD binaries are expected. For that reason, the repository preserves the available variants rather than reconstructing a single artificial bootstrap sequence and presenting it as definitive. What remains consistent across the preserved implementation is the underlying idea: the normal VB6 interface was the preferred execution path, while a lightweight external watchdog and local HTML page provided a second path if startup did not complete successfully.
 
@@ -887,22 +857,11 @@ The project also contains a separate **Scanner IP de precizie**. Instead of test
 
 The start and end addresses are entered as four separate octets. In the preserved example, the range begins at `127.0.0.19` and extends to `255.255.255.255`, with port `139` selected for the test. The application advances through the requested address range and reports hosts for which the selected port can be reached. The two scanning tools therefore performed complementary tasks. The port scanner examined many TCP ports on one IP address, while the IP scanner examined many IP addresses using one selected port.
 
-```text
-TCP port scanner
+<div align="center">
 
-one IP address
-      |
-      v
-many TCP ports
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/scan.png" alt="PC World">
 
-
-IP range scanner
-
-many IP addresses
-      |
-      v
-one selected TCP port
-```
+</div>
 
 <hr>
 
