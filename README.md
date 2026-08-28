@@ -186,7 +186,7 @@ The source allocates indexed program slots from `0` to `18`. Historical comments
 
 ### Application startup
 
-Before presenting the main interface, some editions displayed a dedicated loading screen. The May 2005 build shown below reports the initialization sequence directly to the user: loading application information, checking fonts, validating directories, reading the configuration database, initializing the graphics engine, checking presentation and image files, and finally reporting that the program is operational. A progress indicator at the bottom follows the same startup process.
+Before presenting the main interface, all editions displayed a dedicated loading screen. This reflected the design conventions of the period: splash screens, startup animations and visible initialization sequences were still common in desktop software, even though by the early 2000s personal computers had already become fast enough that such screens were often more stylistic than technically necessary. In this project, the loading screen became part of the visual identity of the application while also reporting the initialization sequence to the user. For example, the May 2005 build shown below reports the loading of application information, fonts, directories, configuration data, graphics and presentation resources, followed by the final operational state. A progress indicator at the bottom follows the same startup process.
 
 <div align="center">
 
@@ -200,9 +200,7 @@ This startup display also illustrates an important characteristic of the program
 
 ### Main interface
 
-After initialization, the reader entered the main PC World environment. The upper navigation bar provided direct access to the principal categories and sections, while the large central area changed according to the selected function.
-
-The June 2005 interface below shows the standard layout that had become established by this stage of development: the main category bar at the top, a large presentation area in the center, persistent sound controls, and the PC World identity panel in the lower-right part of the interface.
+After initialization, the reader entered the main PC World environment. The upper navigation bar provided direct access to the principal categories and sections, while the large central area changed according to the selected function. For instance, the June 2005 interface below shows the standard layout that had become established by this stage of development: the main category bar at the top, a large presentation area in the center, persistent sound controls, and the PC World identity panel in the lower-right part of the interface.
 
 <div align="center">
 
@@ -210,15 +208,13 @@ The June 2005 interface below shows the standard layout that had become establis
 
 </div>
 
-The central presentation surface was deliberately dynamic. Depending on the selected section it could contain introductory artwork, program information, HTML content, captures, lists of applications or other edition-specific material. This allowed the same outer interface to serve several substantially different functions without opening a collection of unrelated Windows dialogs.
+The central presentation surface was deliberately dynamic. Depending on the selected section, it could contain introductory artwork, program information, HTML content, captures, application lists, or other edition-specific material. This allowed the same graphical shell to present several different types of content without opening separate Windows forms for each function.
 
 <hr>
 
 ### Program presentation and software operations
 
-Selecting a program replaced the central page with a dedicated software-information view. The program description appeared on the left, while a corresponding capture was displayed inside the large circular monitor on the right.
-
-The June 2005 example below presents **Cossacks: Napoleonic Wars**. The interface shows a textual description, platform and software type, the associated image, and the actions available for that particular entry.
+Selecting a program replaced the central page with a dedicated software-information view. The program description appeared on the left, while a corresponding capture was displayed inside the large circular monitor on the right. Again, the June 2005 example below presents **Cossacks: Napoleonic Wars**. The interface shows a textual description, platform and software type, the associated image, and the actions available for that particular entry.
 
 <div align="center">
 
@@ -226,7 +222,11 @@ The June 2005 example below presents **Cossacks: Napoleonic Wars**. The interfac
 
 </div>
 
-The same mechanism was reused for very different kinds of software. The August 2005 capture below shows **Download Accelerator Plus** in the Internet category, using the same description/capture layout.
+<br>
+
+The same mechanism was reused for very different kinds of software. For instance, the August 2005 capture below shows **Download Accelerator Plus** in the Internet category, using the same description/capture layout. The two action buttons below the description were enabled or disabled dynamically according to the files found in the corresponding program directory. If the package was supplied only as an archive, such as a ZIP file, the **Copy / Copiere** button became available so that the reader could copy the package from the CD. If an executable setup kit was present, the **Run / Instalare** button became active and launched the installer directly.
+
+<br>
 
 <div align="center">
 
@@ -234,7 +234,9 @@ The same mechanism was reused for very different kinds of software. The August 2
 
 </div>
 
-The application did not assume that every program supplied on the CD had the same packaging. For each entry it checked which associated resources were present and enabled only the operations that could actually be performed.
+<br> 
+
+In the screenshot below, both buttons are disabled because the preserved repository does not include the original software kits for the described programs. Those packages were intentionally omitted from the archive because of their size; only the interface, directory structure and source code are preserved. Thus, the application did not assume that every program supplied on the CD had the same packaging. For each entry it checked which associated resources were present and enabled only the operations that could actually be performed.
 
 ### Runtime behavior
 
