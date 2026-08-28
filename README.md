@@ -240,7 +240,7 @@ In the screenshot below, both buttons are disabled because the preserved reposit
 
 ### Runtime behavior
 
-For each software entry, the interface enabled only the operations supported by the files present in the corresponding program directory.
+The runtime logic was built around the actual files available for each software entry. Every program directory could contain a different combination of installer, directly executable application, archive and documentation files, so the interface inspected the corresponding path before deciding which controls should be available to the user. This made the launcher tolerant of different software-distribution formats. A program could be supplied as a conventional setup package, as a directly runnable executable, as a ZIP archive to be copied from the CD, or simply with documentation. The interface adapted automatically to these cases instead of requiring every entry to follow the same packaging model. For each software entry, the interface enabled only the operations supported by the files present in the corresponding program directory.
 
 | Romanian | English | Function |
 |---|---|---|
@@ -255,7 +255,7 @@ In addition to these actions, the interface displayed the program description an
 
 ### Magazine and supplementary content
 
-The interface also presented material associated with the magazine itself. The July 2005 example below lists applications supplied in the `Revista` section together with their package sizes. The reader could therefore browse magazine-related software from inside the same environment instead of manually searching the CD directory tree.
+The interface also presented material associated with the magazine itself. The July 2005 example below lists applications supplied in the `Revista` section (`revista` is Romanian for **magazine**) together with their package sizes. The reader could therefore browse software associated with the corresponding magazine issue directly from the same environment, without manually searching through the CD directory tree.
 
 <div align="center">
 
@@ -263,7 +263,14 @@ The interface also presented material associated with the magazine itself. The J
 
 </div>
 
+<br>
+
 The distinction between the main software categories and the `Revista` material also allowed each monthly disc to contain both the regular curated software collection and additional programs associated with articles or material published in that issue.
+
+
+The interface also presented software associated directly with the printed magazine. The July 2005 example below lists applications stored in the `Revista` directory — `revista` is Romanian for **magazine** — together with their package sizes. As stated directly in the interface, these programs could be found on the CD in the `Revista` directory, while their detailed descriptions were published separately in the pages of the corresponding PC World issue.
+
+In this way, the CD interface acted as a direct companion to the printed magazine: the reader could identify and access the software from the disc while referring to the magazine for the full descriptions and related editorial material.
 
 <hr>
 
