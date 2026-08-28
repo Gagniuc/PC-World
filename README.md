@@ -141,6 +141,41 @@ The screenshots above show a clear progression in the interface design. The Octo
 
 ---
 
+
+# Info Guide 2005 - Romanian IT&C business directory
+
+Info Guide 2005 was a separate Visual Basic 6 application created as an offline business-discovery system for the Romanian IT&C market. Rather than functioning as a conventional alphabetical company directory, it was designed to connect manufacturers, brands, products and technologies with the Romanian companies that distributed or supplied them. The interface organized the market into areas such as Networks & Telecommunications, Data Storage, Peripherals, Systems, Software and Components, and presented two directly related lists: `Firme producatoare` (manufacturers) and `Firme de distributie` (distributors).
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Apr_2005/Info%20Guide/Screenshot%202026-08-28%20233741.png" />
+
+</div>
+
+The relationships between manufacturers and distributors were stored in simple text databases named `db.2s`. When a manufacturer was selected, the application parsed the corresponding record and displayed the associated distributors. Info Guide therefore functioned as a small B2B supplier-discovery and cross-reference system for the Romanian IT&C market.
+
+The application also included an advanced search capable of locating companies either by name or by the products, activities and services they offered. Search results could be opened as detailed company profiles through an embedded Adobe PDF component. A separate Internet directory provided direct access to a wider collection of Romanian IT&C company websites through the application's embedded Internet Explorer/WebBrowser component.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Apr_2005/Info%20Guide/V3%20(II).png" />
+
+</div>
+
+<hr>
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Apr_2005/Info%20Guide/V3%20(III).png" />
+
+</div>
+
+Historically, these data files are significant independently of the software itself. They preserve a digital snapshot of the Romanian IT&C business ecosystem in 2005, including relationships between manufacturers, distributors, technologies, products and services. Since many of these commercial relationships, companies and websites have since changed or disappeared, the surviving databases and company records also represent a small historical dataset of the Romanian technology market at that time.
+
+The preserved project snapshot, `InfoGuide.vbp`, is dated 2 May 2005 and shows the original implementation directly in Visual Basic 6. The application combines native VB6 controls, custom graphical controls, an embedded Internet Explorer/WebBrowser component and Adobe Acrobat ActiveX for displaying the company dossiers. Because the company profiles were displayed as PDF documents, the application checked for Adobe Acrobat Reader at startup. If it was not available, the user was offered the option to install Acrobat Reader 6.0.1 directly from the CD, where the installation kit was included. Like the main PC World project, it belongs to an archive that preserves original 2004-2005 source generations rather than reconstructing them as a single artificial modern release.
+
+---
+
 # Technical overview
 
 The PC World CD project was designed as a complete production and runtime environment rather than as a single launcher application. One part of the system prepared each monthly release by organizing program packages, graphics, drivers, sounds and magazine material, generating the required directory structure and configuration files, and assembling the final CD master ready for duplication. The second part was the software environment executed by the reader when the finished CD was inserted into a computer. In modern terminology, the system combined the functions of a **content-management tool, build system, multimedia launcher, software catalog, installer front end, local HTML renderer and utility shell**. The implementation was developed primarily in **Microsoft Visual Basic 6.0**, with additional use of Win32 APIs, multimedia services, HTML content, custom graphical resources and networking components.
