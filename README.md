@@ -896,19 +896,27 @@ This allowed material normally consumed locally by `CD.exe` to be exposed throug
 
 The final screenshot shows the other side of this mechanism. **Inter Server v1.0 beta** is running locally, while a standard web browser connects to `localhost` and receives a PC World page generated from the served content. The page identifies itself as **PC World Web Server** and **Inter Server v1.0 beta**. It exposes the software catalog through an HTML interface containing a category selector, a list of programs, a description field and the capture associated with the selected entry. 
 
+<hr>
+
 <div align="center">
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20031150.png" alt="PC World">
 
 </div>
 
+<hr>
+
 In the example, **Imperial Glory** is selected and its image and textual description are displayed in the browser. This is significant because the HTTP server reused the same content model already employed by the local CD application. Program names, descriptions and presentation images were not restricted to the native VB6 shell. The same material could also be presented through HTML and delivered to another browser over the network. The two access paths can be summarized as follows:
+
+<hr>
 
 <div align="center">
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/server.png" alt="PC World">
 
 </div>
+
+<hr>
 
 On a local network, another machine could therefore browse material from the disc without having the physical CD inserted in that computer. If the host machine had a publicly reachable IP address and the necessary network configuration, the same HTTP mechanism could in principle expose the selected content beyond the local network as well. By this stage of development, the PC World environment included software distribution, local HTML presentation, Internet browsing, Ping and response testing, TCP port scanning, service identification, IP range scanning and HTTP serving inside the same application family. These network tools were an extension of the architecture already used throughout the project, combining VB6 application logic, Winsock networking, the embedded browser and the generated CD content structure.
 
