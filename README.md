@@ -240,18 +240,16 @@ In the screenshot below, both buttons are disabled because the preserved reposit
 
 ### Runtime behavior
 
-For each software entry, the interface could dynamically provide:
+For each software entry, the interface enabled only the operations supported by the files present in the corresponding program directory.
 
-- **Install** — launch the program's `setup.exe`;
-- **Run** — launch a directly executable `Aplicatie.exe`, when present;
-- **Copy** — copy the package from the CD to a location selected by the user;
-- **Read** — open the optional `Citeste_ma.txt`;
-- display the program description;
-- display its associated capture;
-- calculate and display the package size;
-- disable operations for files that were not supplied with that particular entry.
+| Romanian | English | Function |
+|---|---|---|
+| **Instalare** | **Install** | Launches `setup.exe`. |
+| **Rulare** | **Run** | Launches `Aplicatie.exe`. |
+| **Copiere** | **Copy** | Copies the software package from the CD. |
+| **Citire** | **Read** | Opens `Citeste_ma.txt`. |
 
-This allowed installers, portable applications, ZIP packages and documentation-only resources to coexist under the same interface without requiring separate launcher code for each program.
+In addition to these actions, the interface displayed the program description and associated capture, calculated the package size, and automatically disabled controls for resources that were not present. This allowed installers, directly runnable applications, ZIP packages and documentation-only resources to coexist under the same interface without requiring separate launcher logic for each program.
 
 <hr>
 
