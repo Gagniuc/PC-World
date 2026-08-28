@@ -80,7 +80,6 @@ The material preserved in this repository spans one complete year of continuous 
 | 11 | August 2005 | 2 | `PCW_Aug_2005` |
 | 12 | September 2005 | 1 | `PCW_Sep_2005` |
 
-
 </div>
 
 The screenshots below document the visual evolution of the PC World CD interface across these monthly editions. Although the overall structure remained recognizable, individual releases introduced changes in graphics, layout, controls, content organization and additional functionality. Together, these interfaces show how the application developed from one edition to the next over the course of the 2004–2005 production period. Across these twelve monthly editions, the production archive represents 16 physical PC World companion CDs.
@@ -139,20 +138,17 @@ The screenshots below document the visual evolution of the PC World CD interface
 
 # Technical overview
 
-In modern terminology, the system was a combination of:
-
-**content-management tool + build system + multimedia launcher + software catalog + installer front end + local HTML renderer + utility shell**
-
-implemented primarily in **Microsoft Visual Basic 6.0**.
+The PC World CD project was designed as a complete production and runtime environment rather than as a single launcher application. One part of the system prepared each monthly release by organizing program packages, graphics, drivers, sounds and magazine material, generating the required directory structure and configuration files, and assembling the final CD master ready for duplication. The second part was the software environment executed by the reader when the finished CD was inserted into a computer. In modern terminology, the system combined the functions of a **content-management tool, build system, multimedia launcher, software catalog, installer front end, local HTML renderer and utility shell**. The implementation was developed primarily in **Microsoft Visual Basic 6.0**, with additional use of Win32 APIs, multimedia services, HTML content, custom graphical resources and networking components.
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/vb%20(I).png">
 
-The project had two principal layers:
+Over the course of the project, the runtime evolved from a software-catalog interface into a broader multimedia shell incorporating installation and execution controls, custom graphics, local HTML presentation, system integration, network utilities and an embedded web server. The diagram below summarizes the two interconnected parts of the system: **monthly CD generation** and the **runtime architecture of the finished disc**.
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/schema%20(VII).png" alt="PC World">
 
+The lower part of the diagram represents the final distribution stage. Once the monthly CD master had been prepared, the disc was duplicated in large quantities and distributed together with **PC World Romania** through the magazine's established circulation channels. Copies reached readers nationwide through newsstands and newspaper kiosks, while subscribers received the corresponding magazine and companion CD through the subscription distribution system. This physical distribution model meant that each completed software build was reproduced and placed directly in the hands of tens of thousands of readers across Romania. Thus, the complete workflow extended from source assets and automated CD generation to the runtime environment used by the reader and, finally, to the large-scale physical duplication and nationwide circulation of the finished disc.
 
-The historical application itself calls the CD assembly operation a **"compilation"**. Technically, the generator does not recompile the Visual Basic program every month. It performs a content/build step: it creates the directory hierarchy, generates configuration and HTML files, copies graphics and program packages, and places the already compiled runtime executables into the final `Matrita` tree.
+The historical application itself refers to the CD assembly operation as a **"compilation"**. Technically, the generator did not recompile the Visual Basic program for every monthly edition. Instead, it performed a content/build operation: creating the directory hierarchy, generating configuration and HTML files, copying graphics and program packages, and placing the already compiled runtime executables into the final `Matrita` tree.
 
 ---
 
