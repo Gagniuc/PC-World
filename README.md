@@ -793,11 +793,15 @@ By May 2005, the PC World interface had developed a complete group of networking
 
 The main networking screen preserved the general structure of the PC World interface. The embedded browser controls remained visible at the top, while the central area used a world map as the visual background for the networking section. Four dedicated controls provided access to the principal tools: **Scanare IP** for IP scanning, **Viteza de raspuns** for response testing, **Scanare porturi** for TCP port scanning, and **Server Web** for the integrated HTTP server. This arrangement shows how the network functions were added as another working layer of `CD.exe` rather than as a separate utility package. The reader could move from the software catalog to Internet browsing or network diagnostics while remaining inside the same PC World shell.
 
+<hr>
+
 <div align="center">
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Mai_2005/Screenshot%202026-08-26%20030326.png" alt="PC World">
 
 </div>
+
+<hr>
 
 The screenshot also captures the hybrid character of the application particularly well. The navigation controls at the top belong to the embedded browser environment, while the four networking commands below the map invoke native VB6 functionality and dedicated utility windows. The text visible over the map identifies the integrated browser as **version 0.6**, showing that the browser component itself was still evolving alongside the networking tools during the monthly releases. The world map was primarily a thematic background for this part of the interface, visually separating the networking functions from the ordinary software catalog while preserving the same surrounding skin, sound controls and navigation conventions. Selecting one of the four network functions did not replace the entire application; it opened the corresponding diagnostic or server interface on top of, or in conjunction with, the main PC World environment. This screen therefore acted as the central entry point for the networking subsystem. From here, the user could test the reachability and response time of another host, scan TCP ports on a selected machine, search ranges of IP addresses for a particular service, or start the integrated HTTP server. The following subsections document these functions individually and show the information produced by each tool.
 
