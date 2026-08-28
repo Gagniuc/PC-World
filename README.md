@@ -38,7 +38,7 @@ The project started almost by accident. In 2004 I went to **ICI** to register th
 
 ## What is preserved here
 
-The repository includes substantially more than the final executables:
+The repository preserves the PC World CD project at several levels: the source code of the applications themselves, the monthly production material, the reusable CD-generation system, and the assets required to reproduce the original interface and directory structure. It therefore documents both the software seen by the end user and the internal workflow used to prepare each monthly release. The preserved material includes:
 
 - the Visual Basic 6 source code of the PC World CD interface;
 - several monthly interface variants from October 2004 to September 2005;
@@ -55,7 +55,7 @@ The repository includes substantially more than the final executables:
 - legacy Visual Basic runtime and ActiveX dependencies preserved with historical builds;
 - screenshots and other restoration material.
 
-There are many duplicated or slightly different source trees because this was a real production archive rather than a later cleaned-room project. A monthly build could contain small changes that were never merged back into a single canonical source directory.
+There are many duplicated or slightly different source trees because this was a real production archive rather than a later cleaned-room project. A monthly build could contain small changes that were never merged back into a single canonical source directory. In 2004, GitHub did not yet exist, and modern distributed version-control workflows were not part of everyday software development. For a one-person project of this scale, development was still something of a "Wild West" in organizational terms: working copies, backups, monthly snapshots and manually duplicated directories often served the role that branches, commits and release tags would provide today.
 
 ---
 
