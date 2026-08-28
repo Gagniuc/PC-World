@@ -292,13 +292,15 @@ The help text itself describes several interface behaviors. It explains that sel
 
 The browser functionality grew directly out of the hybrid architecture chosen for the application from the beginning of the project in 2004. `CD.exe` combined conventional Visual Basic 6 forms and controls with Microsoft's embedded **WebBrowser** component, which used the Internet Explorer rendering engine already available in Windows. This made it possible to use ordinary VB6 code for the application logic while using HTML whenever a more flexible presentation surface was useful. The embedded browser object was therefore present for a practical reason before it was ever exposed as a web browser. Local HTML pages could be generated or modified independently of the executable and then displayed directly inside the PC World interface. Text, links, images and more complex layouts were considerably easier to construct in HTML than by reproducing every element with native VB6 controls. At the same time, using the Windows browser engine avoided the need to develop a separate HTML renderer and provided a familiar rendering environment across the Windows systems for which the CDs were intended. This **VB6 + HTML/WebBrowser** model was adopted at the beginning of the project in 2004 and remained part of the architecture through the final editions in September 2005. The same embedded object was used for local interface content, Help pages and other HTML-based material. Since the application already contained a functional browser engine, extending it into an actual Internet browser required comparatively little additional work. I therefore exposed the navigation functionality as another feature of the PC World shell. It was technically simple, since the underlying browsing engine was Microsoft's rather than one written specifically for this project, but at the time it produced a useful and visually effective addition to the application. The screenshot below, from **November 2004**, shows this early browser interface identified directly in the application as **version 0.1**. It provides its own **Back, Forward, address entry, Load, Stop and Reload** controls, while the browser itself remains embedded inside the same custom PC World graphical shell.
 
+<hr>
+
 <div align="center">
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Nov_2004/Screenshot%202026-08-26%20012020.png" alt="PC World">
 
 </div>
 
-<br>
+<hr>
 
 The text displayed inside the interface explicitly announces that Internet navigation is available directly through the application. In practice, the same component could therefore serve two roles: it could render local HTML belonging to the CD interface or navigate to ordinary web content when given an Internet address. This dual use of the embedded browser became one of the architectural characteristics of `CD.exe`: native VB6 handled the application logic, controls, file operations and system integration, while the browser component provided a flexible HTML presentation layer and, when required, direct Internet navigation.
 
