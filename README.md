@@ -1,36 +1,34 @@
 # PC World Romania CD Interface Archive (2004-2005)
 
-**Complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005.** This repository preserves the development history of **16 PC World CD-ROMs produced during a continuous one-year period**, together with the Visual Basic 6 source code of the interfaces and the software I wrote to generate the monthly CD structure.
-
-
-
-
-The archive contains the working sources, several intermediate and alternative versions, the generator/template system, monthly CD trees, graphics, sounds, HTML content, configuration files, helper programs, and later compatibility work for modern Windows.
+**Complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005.** This repository preserves the development history of **16 PC World CD-ROMs produced during a continuous one-year period**, together with the Visual Basic 6 source code of the interfaces and the software I wrote to generate the monthly CD structure. The repository also preserves intermediate versions, alternative builds, historical assets, and the 2026 Windows 11 compatibility restoration.
 
 > **Historical archive:** this repository intentionally preserves multiple generations of the project. Some folders contain original 2004–2005 sources, others contain later working copies or the 2026 English/Windows 11 restoration. They should not be assumed to represent one perfectly synchronized release tree.
 
-The image below presents the PC World CD archive as a single historical collection, representing the series of companion discs produced between 2004 and 2005. Each disc corresponds to a published PC World edition for which the software interface and CD master structure were prepared as part of the same production system.
-
+The image below shows the complete set of PC World companion CDs covered by this archive. Each disc corresponds to an edition for which the software interface and CD master structure were produced.
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/ban/set%20(V).png" alt="PC World | CDs">
 
-Example of the PC World Romania CD interface, June 2005. This was one of the monthly interfaces I designed and programmed in Visual Basic 6.0 for the magazine's companion CDs. The application provided access to the software categories, magazine content, help and information sections, while also handling installation, execution and presentation of the programs distributed on the disc.
+The CD interface operated as a self-contained software catalog and launcher. When the disc was inserted, the autorun sequence started the PC World application, which loaded the content prepared for that particular monthly edition. Programs were organized into categories such as Utilities, Multimedia, Games, Internet, Antivirus and Permanent software. Selecting an entry displayed its name, description and associated graphic, while the available controls were activated according to the files present on the CD. From the same interface, the user could install the program, run it directly when a portable executable was provided, read additional information, or copy the package to the local computer. The interface therefore acted as the operational front end for the complete contents of each PC World companion CD.
+
+Below is an example of the PC World Romania CD interface from June 2005. It was one of the monthly interfaces I designed and programmed in Visual Basic 6.0 for the magazine's companion CDs. The application provided access to software categories, magazine content, help and information sections, and handled the installation, execution, description and presentation of the programs distributed on the disc.
 
 
 <div align="center">
-	<a href="https://github.com/Gagniuc/PC-World"><kbd><img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/macheta.png" alt="PC World | CDs"></kbd></a>
+    <a href="https://github.com/Gagniuc/PC-World"><kbd><img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/macheta.png" alt="PC World | CDs"></kbd></a>
 </div>
 
 <hr>
 
-
-Scrolling LED message display used by the PC World CD interface: It showed the current edition and used the computer's system date to determine whether that issue was still the latest one. If newer issues should already have appeared, the display reported whether one or several newer PC World issues had been released since the date of that CD. The text was rendered as a continuously scrolling dot-matrix display in Visual Basic 6.
+Among the other interface elements was a scrolling LED message display. The message was generated dynamically from the current PC World edition and the computer's system date. The program determined whether the CD corresponded to the latest issue and, if not, reported how many newer monthly issues should already have appeared. The text was rendered as a continuously scrolling dot-matrix display in Visual Basic 6.
 
 <div align="center">
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jul_2005/ezgif-6fa3ae7da83254c8.gif" alt="PC World">
 
 </div>
+
+<br>
+The scrolling effect was generated programmatically. The message was first rendered as ordinary text into an off-screen bitmap, then sampled pixel by pixel. Pixels belonging to the letters were converted into illuminated cells, while background pixels were represented by unlit cells. The resulting matrix was shifted horizontally at regular timer intervals, creating the continuous LED-style movement.
 
 ---
 
