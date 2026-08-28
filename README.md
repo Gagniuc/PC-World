@@ -69,13 +69,13 @@ The material preserved in this repository spans one complete year of continuous 
 | 2 | November 2004 | 1 | `PCW_Nov_2004` |
 | 3 | December 2004 | 1 | `PCW_Dec_2004` |
 | 4 | January 2005 | 1 | `PCW_Jan_2005` |
-| 5 | February 2005 | 1 | `PCW_Feb_2005` |
+| 5 | February 2005 | 2 | `PCW_Feb_2005` |
 | 6 | March 2005 | 1 | `PCW_Mar_2005` |
-| 7 | April 2005 | 1 | `PCW_Apr_2005` |
+| 7 | April 2005 | 2 | `PCW_Apr_2005` |
 | 8 | May 2005 | 1 | `PCW_Mai_2005` |
 | 9 | June 2005 | 2 | `PCW_Jun_2005` |
 | 10 | July 2005 | 1 | `PCW_Jul_2005` |
-| 11 | August 2005 | 1 | `PCW_Aug_2005` |
+| 11 | August 2005 | 2 | `PCW_Aug_2005` |
 | 12 | September 2005 | 1 | `PCW_Sep_2005` |
 
 
