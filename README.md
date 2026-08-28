@@ -651,11 +651,13 @@ Matrita = generated monthly CD structure
 
 ## 8. Startup animation - `Start.exe`
 
-The project also contains source snapshots for `Start.exe`. The program is a borderless VB6 window that uses the Windows Multimedia API:
+`Start.exe` was the first graphical component executed when the PC World CD was inserted. Its role was deliberately small and separate from the main application. Instead of loading the complete `CD.exe` interface immediately, it opened a borderless Visual Basic 6 window, played the animated PC World introduction, and then transferred control to the main application. The separation was intentional. The intro could remain a lightweight bootstrap program while `CD.exe` contained the much larger interface, software catalog, HTML presentation system and utility functions. This also meant that the startup animation could be changed independently from the main application. The preserved source uses the Windows Multimedia API function:
 
 ```text
 mciSendString()
 ```
+
+Rather than implementing AVI decoding itself, `Start.exe` delegates video playback to the multimedia services already present in Windows. The AVI is opened through MCI and displayed inside the VB6 window as an embedded child video surface. The surrounding form has no normal Windows border or title bar, so from the user's perspective the animation appears as a dedicated startup screen rather than as a conventional application window.
 
 <div align="center">
 
@@ -663,14 +665,46 @@ mciSendString()
 
 </div>
 
-
-to play the intro AVI as an embedded child video. The preserved 2004 and 2005 variants show the intro for approximately **6 seconds** and **4.5 seconds**, respectively, and then launch:
+The intro was primarily a presentation element rather than a technical requirement. Splash screens and animated startup sequences were very common in desktop software of the period, particularly in multimedia applications and magazine CDs. By 2004 and 2005 the computers on which PC World normally ran were already fast enough that a several second loading animation was not generally required simply to hide initialization time. In this case, the sequence was used to give the CD a recognizable beginning before the reader entered the main interface. The preserved variants show that the duration was adjusted during the life of the project. An earlier 2004 version keeps the intro visible for approximately **6 seconds**, while a later 2005 version reduces this to approximately **4.5 seconds**. At the end of the sequence, `Start.exe` launches:
 
 ```text
 CD.exe
 ```
 
-The source also converts the AVI path to an old-style DOS short filename through `GetShortPathName`, which avoided path/space problems common in multimedia code of that period. The August 2005 `AUTORUN.INF` preserved in the archive contains:
+and the main PC World environment takes over. The source also contains a small compatibility detail typical of Windows multimedia programming at the time. Before passing the AVI filename to MCI, the application converts its path using:
+
+```text
+GetShortPathName()
+```
+
+This produces the traditional DOS style short path, such as a name based on the `PROGRA~1` convention. Multimedia APIs and older Windows components could sometimes behave unpredictably when filenames contained spaces or other characters, so using the short path reduced the possibility of the video failing to open because of pathname parsing. The startup sequence therefore followed a simple chain:
+
+```text
+CD inserted
+     |
+     v
+AUTORUN.INF
+     |
+     v
+Start.exe
+     |
+     v
+open intro AVI through MCI
+     |
+     v
+display AVI inside borderless VB6 window
+     |
+     v
+wait for intro sequence
+     |
+     v
+launch CD.exe
+     |
+     v
+main PC World interface
+```
+
+The August 2005 `AUTORUN.INF` preserved in the archive shows this relationship explicitly:
 
 ```ini
 [AUTORUN]
@@ -678,9 +712,10 @@ OPEN=PC_World\Start.exe
 Icon=PC_World\aferent\PC.ico
 ```
 
-Thus the user experience was designed to begin with the animated intro before entering the main interface.
+Windows therefore did not start `CD.exe` directly when the disc was inserted. It started `Start.exe`, while the icon associated with the CD was loaded separately from `PC.ico`. Only after the introductory sequence had completed did the bootstrap application open the main program. This small executable consequently formed the first stage of the complete runtime environment. `AUTORUN.INF` initiated the disc, `Start.exe` handled the animated introduction, and `CD.exe` provided the actual interactive PC World interface. The arrangement also kept the presentation layer of the startup process independent from the considerably more complex main application.
 
 ---
+
 
 ## 9. `Control.exe` - watchdog and fallback
 
