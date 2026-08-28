@@ -10,6 +10,7 @@ The image below was created with ChatGPT as a visual presentation of the PC Worl
 
 The CD interface operated as a self-contained software catalog and launcher. When the disc was inserted, the autorun sequence started the PC World application, which loaded the content prepared for that particular monthly edition. Programs were organized into categories such as Utilities, Multimedia, Games, Internet, Antivirus and Permanent software. Selecting an entry displayed its name, description and associated graphic, while the available controls were activated according to the files present on the CD. From the same interface, the user could install the program, run it directly when a portable executable was provided, read additional information, or copy the package to the local computer. The interface therefore acted as the operational front end for the complete contents of each PC World companion CD. Below is an example of the PC World Romania CD interface from June 2005. It was one of the monthly interfaces I designed and programmed in Visual Basic 6.0 for the magazine's companion CDs. The application provided access to software categories, magazine content, help and information sections, and handled the installation, execution, description and presentation of the programs distributed on the disc.
 
+<hr>
 
 <div align="center">
     <a href="https://github.com/Gagniuc/PC-World"><kbd><img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/macheta.png" alt="PC World | CDs"></kbd></a>
