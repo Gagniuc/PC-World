@@ -661,7 +661,7 @@ Rather than implementing AVI decoding itself, `Start.exe` delegates video playba
 
 <div align="center">
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/animatie.gif" alt="PC World">
+<kbd><img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/animatie.gif" alt="PC World"></kbd>
 
 </div>
 
@@ -815,11 +815,9 @@ The application can enable/disable interface sound, play a looping monthly backg
 
 ---
 
-## 11. Built-in network tools
+## 11. Built in network tools
 
-The PC World interface was not merely a graphical menu used to launch installers. Over time it evolved into a **self-contained Windows utility suite**, providing several tools that could be used directly from the CD interface. Among the functionality preserved in the source code are:
-
-
+By May 2005, the PC World interface contained a complete group of network utilities integrated directly into the main application. These functions were accessible from the same graphical shell used for the software catalog and browser, without requiring separate third party networking programs. The network section was built around the Winsock and Windows networking facilities available to Visual Basic 6. It included IP scanning, response time testing, TCP port scanning, basic service identification, hostname and address resolution, and a small HTTP server capable of exposing files from the local machine or directly from the PC World CD. The main network screen used the same interface framework as the rest of `CD.exe`. A world map occupied the central area, while four buttons provided access to the principal tools: **Scanare IP** for IP scanning, **Viteza de raspuns** for response testing, **Scanare porturi** for TCP port scanning, and **Server Web** for the integrated HTTP server.
 
 <div align="center">
 
@@ -827,9 +825,13 @@ The PC World interface was not merely a graphical menu used to launch installers
 
 </div>
 
+This screen also shows how the networking tools were integrated into the hybrid application architecture already used elsewhere in the project. The browser controls remain visible at the top of the interface, while the networking functions appear as additional tools inside the same shell. The user could therefore move between local CD content, Internet browsing and network diagnostics without leaving `CD.exe`.
 
 <hr>
 
+### Response time and Ping
+
+The response testing function opened a dedicated Ping window. The user could specify the destination IP address, the number of Ping requests and the packet size. The result area displayed the returned packet size, round trip time and TTL value for each response.
 
 <div align="center">
 
@@ -837,7 +839,13 @@ The PC World interface was not merely a graphical menu used to launch installers
 
 </div>
 
+In the example above, the target is `192.168.1.5`. The application repeatedly receives 32 byte replies with a reported round trip time of approximately zero milliseconds and a TTL of 128, which is consistent with a machine located on the same local network. At the end of the test, the program also calculates and displays the approximate average response time. This was intended as a practical diagnostic rather than simply a demonstration of Winsock programming. It allowed a reader to check whether another machine was reachable and obtain a basic indication of network latency directly from the PC World application.
+
 <hr>
+
+### High speed TCP port scanner
+
+Another utility was the TCP/IP port scanner. The user supplied an IP address together with the first and last TCP ports to test. The application then attempted connections throughout the selected range and displayed any ports that responded.
 
 <div align="center">
 
@@ -845,7 +853,7 @@ The PC World interface was not merely a graphical menu used to launch installers
 
 </div>
 
-<hr>
+The example above scans `192.168.1.5` beginning at port `1` and continuing toward `65536`. Several open ports are detected, including ports `135`, `139` and `445`. Where the port number corresponded to a known service, the application also displayed a human readable identification such as **DCE endpoint resolution**, **NETBIOS Session Service** and **Microsoft DS**. The scanner could therefore perform more than a binary open or closed test. It also contained a small service identification layer that translated well known TCP port numbers into recognizable service names. A later execution of the same scanner is shown below:
 
 <div align="center">
 
@@ -853,8 +861,7 @@ The PC World interface was not merely a graphical menu used to launch installers
 
 </div>
 
-<hr>
-
+Here the scan again detects ports `135`, `139` and `445` on the same local machine. The status line continuously reports the port currently being tested, which allowed the user to follow the scan while it progressed through a large port range. The screenshot also shows that the scan could be interrupted before reaching the end of the requested range. A separate preserved version of the scanner presents the same idea in a more compact standalone window:
 
 <div align="center">
 
@@ -862,7 +869,13 @@ The PC World interface was not merely a graphical menu used to launch installers
 
 </div>
 
+This version again scans the complete TCP range and records detected services together with timestamps. The different scanner interfaces preserved in the archive reflect the continued experimentation and development of these utilities during the monthly production period.
+
 <hr>
+
+### IP range scanner
+
+The networking section also contains a separate IP scanner intended to search an address range for machines responding on a selected TCP port.
 
 <div align="center">
 
@@ -870,8 +883,30 @@ The PC World interface was not merely a graphical menu used to launch installers
 
 </div>
 
+In this interface, the start and end IP addresses are entered as four separate octets. The screenshot shows a range beginning at `127.0.0.1` and extending to `255.255.255.255`, with port `139` selected as the test port. The program then advances through the requested address space and reports systems for which the selected port can be reached. This provided a simple form of local network discovery. Instead of testing many ports on one machine, as the port scanner did, this tool could test one selected port across many IP addresses. The two scanners therefore performed complementary operations:
+
+```text
+Port scanner
+
+one IP address
+      |
+      v
+many TCP ports
+
+
+IP scanner
+
+many IP addresses
+      |
+      v
+one selected TCP port
+```
 
 <hr>
+
+### Inter Server v1.0 beta
+
+The most substantial networking component was **Inter Server v1.0 beta**, a small HTTP server implemented directly in Visual Basic 6. The server interface allowed the user to select a root directory and choose the TCP port on which the HTTP service would listen. Port `80` was used by default. A directory tree on the right side of the window allowed the server root to be selected visually, while the main log area displayed the current root directory, server status, transmitted data and number of active connections.
 
 <div align="center">
 
@@ -879,39 +914,44 @@ The PC World interface was not merely a graphical menu used to launch installers
 
 </div>
 
+The screenshot shows the server operating directly from the preserved PC World directory structure, with the `aferent` directory selected as the document root. This meant that the same files normally accessed locally by `CD.exe` could also be made available through HTTP. The implementation handles incoming HTTP requests through Winsock, constructs HTTP response headers, maps requested paths to files and directories under the selected root, and transmits the requested content to the connected client. It could therefore function as a small standalone web server without Apache, IIS or another external server package. This capability made it possible to expose the contents of the PC World CD to other computers on the same local network. A user could start Inter Server on one machine, select the CD directory as the server root, and then access that content from a web browser running on another computer.
 
-- **Ping / response-time testing** for remote hosts;
-- **IP and local-network scanning**;
-- **TCP port scanning**;
-- **service identification** for known network ports;
-- **hostname and IP-address resolution**;
-- several Winsock-based network diagnostics;
-- an integrated **HTTP server**;
-- the ability to expose and browse CD content over a local network.
+<hr>
 
-One of the more unusual components was the built-in **Inter-Server**, a small HTTP server implemented directly in Visual Basic 6 using Winsock. It could listen on a configurable TCP port, process incoming HTTP requests, generate response headers, display directories and serve files from the local machine/CD. This meant that the contents of the PC World disc could effectively be made available to another computer on the same network without installing a separate web-server package. The interface therefore served two roles simultaneously:
+### Browsing the CD through HTTP
+
+The final preserved screenshot demonstrates the result in a web browser, with **Inter Server v1.0 beta** serving the PC World content through HTTP. The page identifies itself as **PC World - Web Server** and exposes the software catalog through an HTML interface containing a category selector, a list of available programs, the selected program description and its associated capture. In the example, **Imperial Glory** is selected. The software description and image are delivered by the server from the same PC World content structure used by the local application. This demonstrates that the generated CD data was not restricted to the native VB6 interface and could also be presented remotely through a standard browser. This is particularly interesting because it reused the same content architecture already present on the CD. The program metadata, descriptions and presentation images could be consumed locally by `CD.exe` or exposed through HTML and delivered over the network by the integrated server. In practical terms, the application could therefore expose the companion CD in two different ways:
 
 ```text
+local use
+
 PC World CD
      |
-     +-- Software distribution platform
-     |      installers
-     |      applications
-     |      drivers
-     |      magazine content
+     v
+CD.exe
      |
-     +-- Stand-alone utility environment
-            ping / response tests
-            IP scanner
-            port scanner
-            host resolution
-            network diagnostics
-            HTTP file server
+     v
+native VB6 and HTML interface
+
+
+network use
+
+PC World CD
+     |
+     v
+Inter Server
+     |
+     v
+HTTP
+     |
+     v
+web browser on another computer
 ```
 
-These functions were integrated into the same custom graphical environment as the software catalog, rather than being separate external programs. For a magazine companion CD from 2004–2005, this made the application considerably more than an `AUTORUN` menu: it was a small **multimedia and networking shell** with its own diagnostic and content-sharing capabilities.
+On a local network, another computer could browse and retrieve material from the disc without physically having the CD inserted. If the host machine had a publicly reachable IP address and the necessary network configuration, the same HTTP mechanism could also make the selected content reachable beyond the local network. The networking functions were therefore an extension of the architecture already present in the project. The embedded browser provided an HTML capable presentation layer, Winsock provided direct network communication, and the generated CD structure supplied content that could be accessed either locally or through HTTP. By this stage of development, `CD.exe` included software distribution, HTML presentation, Internet browsing, Ping and response testing, IP scanning, TCP port scanning, service identification and HTTP serving inside the same PC World interface. The result was a general multimedia and networking environment built around the contents of the companion CD rather than a conventional autorun launcher.
 
 ---
+
 
 ## 12. Other operating-system integration
 
