@@ -1,8 +1,8 @@
 # PC World Romania CD Interface Archive (2004-2005)
 
-**Complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005.** This repository preserves the development history of **16 PC World CD-ROMs produced during a continuous one-year period**, together with the Visual Basic 6 source code of the interfaces and the software I wrote to generate the monthly CD structure. The repository also preserves intermediate versions, alternative builds, historical assets, and the 2026 Windows 11 compatibility restoration.
+**Complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005.** This ~700Mb repository preserves the development history of **16 PC World CD-ROMs produced during a continuous one-year period**, together with the Visual Basic 6 source code of the interfaces and the software I wrote to generate the monthly CD structure. The repository also preserves intermediate versions, alternative builds, historical assets, and the 2026 Windows 11 compatibility restoration.
 
-> **Historical archive:** this repository intentionally preserves multiple generations of the project. Some folders contain original 2004–2005 sources, others contain later working copies or the 2026 English/Windows 11 restoration. They should not be assumed to represent one perfectly synchronized release tree.
+> **Historical archive:** this repository intentionally preserves multiple generations of the project. Some folders contain original 2004-2005 sources, others contain later working copies or the 2026 English/Windows 11 restoration. They should not be assumed to represent one perfectly synchronized release tree.
 
 The image below was created with ChatGPT as a visual presentation of the PC World companion CD collection covered by this archive. Each disc represents an edition for which the software interface and CD master structure were produced. The original scan of all 16 physical CDs, made with my printer's scanner, is preserved in the repository under the img directory. It provides the primary visual record of the actual discs, including their original artwork, labels, issue dates and CD variants.
 
@@ -133,6 +133,10 @@ The screenshots below document the visual evolution of the PC World CD interface
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Oct_2004/ezgif-37e9f571da6a9b64.gif" alt="PC World">
 
 </div>
+
+<br>
+
+The screenshots above show a clear progression in the interface design. The October 2004 edition still used the earlier blue layout, while the November 2004 release introduced the metallic gray framework that became the visual basis for most subsequent editions. From December 2004 onward, the general control structure remained increasingly stable, while the central presentation area, background artwork, auxiliary controls and available functions continued to change from month to month. Later editions increasingly adapted the interface to the content of the corresponding disc. Themed backgrounds were used for particular games or software collections, while some releases introduced specialized navigation layouts, as seen in the June 2005 graphics-oriented edition with sections for animation, applets and scripts, web editing and web graphics. By July and August 2005, the interface had reached a comparatively mature form, retaining the established navigation structure while integrating the broader functionality developed throughout the year.
 
 ---
 
