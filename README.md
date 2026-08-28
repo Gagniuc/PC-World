@@ -63,6 +63,8 @@ There are many duplicated or slightly different source trees because this was a 
 
 The material preserved in this repository spans one complete year of continuous PC World CD production. During this period, the interface, content structure and supporting tools evolved from one monthly edition to the next. The preserved monthly sequence runs from: **October 2004 → September 2005**. The repository organizes this period as twelve monthly editions:
 
+<div align="center">
+
 | Index | Edition | Physical CDs | Archive folder |
 |---:|---|---:|---|
 | 1 | October 2004 | 1 | `PCW_Oct_2004` |
@@ -78,6 +80,8 @@ The material preserved in this repository spans one complete year of continuous 
 | 11 | August 2005 | 2 | `PCW_Aug_2005` |
 | 12 | September 2005 | 1 | `PCW_Sep_2005` |
 
+
+</div>
 
 The screenshots below document the visual evolution of the PC World CD interface across these monthly editions. Although the overall structure remained recognizable, individual releases introduced changes in graphics, layout, controls, content organization and additional functionality. Together, these interfaces show how the application developed from one edition to the next over the course of the 2004–2005 production period. Across these twelve monthly editions, the production archive represents 16 physical PC World companion CDs.
 
