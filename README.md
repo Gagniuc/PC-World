@@ -1,7 +1,7 @@
 # PC World Romania CD Interface Archive (2004-2005)
 
 
-In 2026, while nostalgically going through some of my old source-code CDs, I unexpectedly rediscovered the complete PC World material, almost exactly **22 years after the project began**. Looking at it again after so much time, and now in an era where AI makes old software considerably easier to inspect, understand and document, I found little reason to leave such a large body of work forgotten on old media. I created these CDs largely out of enthusiasm, curiosity and genuine affection for PC World, without treating the project as a commercial job. Publishing the surviving material in full therefore feels like the proper conclusion to something that began simply because I wanted to build it.
+In 2026, while nostalgically going through some of my old source-code CDs, I unexpectedly rediscovered the complete PC World material, almost exactly 22 years after the project began. Looking at it again after so much time, and now in an era where AI makes old software considerably easier to inspect, understand and document, I found little reason to leave such a large body of work forgotten on old media. I created these CDs largely out of enthusiasm, curiosity and genuine affection for PC World, without treating the project as a commercial job. Publishing the surviving material in full therefore feels like the proper conclusion to something that began simply because I wanted to build it.
 
 <hr>
 
