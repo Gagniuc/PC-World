@@ -9,7 +9,7 @@ Therefore, complete source-code archive, monthly production trees, graphics, boo
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/ban/set%20(V).png" alt="PC World | CDs">
 
-> **Historical archive:** this repository intentionally preserves multiple generations of the project. Some folders contain original 2004-2005 sources, others contain later working copies or the 2026 English/Windows 11 restoration. They should not be assumed to represent one perfectly synchronized release tree.
+> **Historical archive:** this repository intentionally preserves multiple generations of the project. Some folders contain original 2004-2005 sources, others contain later working copies or the 2026 English/Windows 11 restoration. They should not be assumed to represent one perfectly synchronized release tree. Looking at VB6 source code and CD-ROM production trees from more than two decades ago, I have to admit that I sometimes feel a little like a dinosaur.
 
 The image above was created with ChatGPT as a visual presentation of the PC World companion CD collection covered by this archive. Each disc represents an edition for which the software interface and CD master structure were produced. The original scan of all 16 physical CDs, made with my printer's scanner, is preserved in the repository under the img directory. It provides the primary visual record of the actual discs, including their original artwork, labels, issue dates and CD variants.
 
