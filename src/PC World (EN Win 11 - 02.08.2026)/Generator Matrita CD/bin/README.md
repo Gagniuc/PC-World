@@ -1,6 +1,6 @@
 # Compiled PC World CD Generator
 
-This directory contains the compiled distribution of the historical **PC World CD Maker**, the Visual Basic 6 application used to assemble the monthly PC World Romania companion CD structure. The main executable is:
+This directory contains the compiled distribution of the historical **PC World CD Maker**, the Visual Basic 6.0 application used to assemble the monthly PC World Romania companion CD structure. The main executable is:
 
 ```text
 Set.exe
