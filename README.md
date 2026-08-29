@@ -5,7 +5,7 @@ In 2026, while nostalgically going through some of my old source-code CDs, I une
 
 <hr>
 
-Therefore, complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005. This ~750Mb repository preserves the development history of 16 PC World CD-ROMs produced during a continuous one-year period, together with the Visual Basic 6.0 source code of the interfaces and the software I wrote to generate the monthly CD structure. The repository also preserves intermediate versions, alternative builds, historical assets, and the 2026 Windows 11 compatibility restoration.
+Therefore, complete source-code archive, monthly production trees, graphics, bootstrap programs, and the CD-template generator used for the PC World Romania companion CDs I produced from October 2004 to September 2005. This ~800Mb repository preserves the development history of 16 PC World CD-ROMs produced during a continuous one-year period, together with the Visual Basic 6.0 source code of the interfaces and the software I wrote to generate the monthly CD structure. The repository also preserves intermediate versions, alternative builds, historical assets, and the 2026 Windows 11 compatibility restoration.
 
 <img src="https://github.com/Gagniuc/PC-World/blob/main/img/ban/set%20(V).png" alt="PC World | CDs">
 
