@@ -89,7 +89,7 @@ The material preserved in this repository spans one complete year of continuous 
 
 </div>
 
-The screenshots below document the visual evolution of the PC World CD interface across these monthly editions. Although the overall structure remained recognizable, individual releases introduced changes in graphics, layout, controls, content organization and additional functionality. Together, these interfaces show how the application developed from one edition to the next over the course of the 2004–2005 production period. Across these twelve monthly editions, the production archive represents 16 physical PC World companion CDs.
+The screenshots below document the visual evolution of the PC World CD interface across these monthly editions. Although the overall structure remained recognizable, individual releases introduced changes in graphics, layout, controls, content organization and additional functionality. Together, these interfaces show how the application developed from one edition to the next over the course of the 2004-2005 production period. Across these twelve monthly editions, the production archive represents 16 physical PC World companion CDs.
 
 <div align="center">
 
