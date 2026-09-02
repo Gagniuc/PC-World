@@ -125,7 +125,7 @@ The screenshots below document the visual evolution of the PC World CD interface
 
 <hr>
 
-<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jan_2005/Screenshot%202026-08-26%20023749.png" alt="PC World">
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jan_2005/Screenshot%202026-09-02%20213045.png" alt="PC World">
 
 <hr>
 
