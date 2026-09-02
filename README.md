@@ -314,10 +314,9 @@ The text visible directly in the July 2005 interface explains this relationship 
 <hr>
 
 
-
 ### Driver distribution
 
-The interface included a dedicated Drivers section. The January 2005 edition shown below contains two NVIDIA Graphics Driver 66.93 packages, one for Windows NT and one for Windows 2000/XP. The page lists the supported GeForce families and the target operating system for each package. Drivers were already available from manufacturers' websites at the time, but downloading them was not always convenient.
+The interface included a dedicated Drivers section. The January 2005 edition shown below contains two NVIDIA Graphics Driver 66.93 packages, one for Windows NT and one for Windows 2000/XP. The page lists the supported GeForce families and the target operating system for each package. Drivers were already available from manufacturers' websites at the time, but downloading them was not always convenient. Many users still relied on dial-up or relatively slow Internet connections, and large driver packages could take a considerable time to obtain.
 
 <div align="center">
 
@@ -327,13 +326,9 @@ The interface included a dedicated Drivers section. The January 2005 edition sho
 
 <br>
 
-Many users still relied on dial-up or relatively slow Internet connections, and large driver packages could take a considerable time to obtain. Including commonly needed drivers on the companion CD provided an immediate offline copy and was also useful after reinstalling Windows, when network connectivity or the correct network driver might not yet be available. Nonetheless, driver content was handled separately in the CD structure. The generator created `Drivere.htm` and copied the corresponding driver packages during preparation of the monthly `Matrita`. `Drivere.htm` was also part of the reusable `Geneza` template used by the generator.
+Including commonly needed drivers on the companion CD provided an immediate offline copy and was also useful after reinstalling Windows, when network connectivity or the correct network driver might not yet be available. Moreover, for some users, the CD also offered a more trusted source than downloading drivers from unfamiliar websites, where unofficial mirrors, misleading download pages, bundled adware and occasionally malicious files were already a concern. Nonetheless, driver content was handled separately in the CD structure. The generator created `Drivere.htm` and copied the corresponding driver packages during preparation of the monthly `Matrita`. `Drivere.htm` was also part of the reusable `Geneza` template used by the generator.
 
 <hr>
-
-
-
-
 
 
 ### Integrated HTML presentation and help system
