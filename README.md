@@ -1089,6 +1089,22 @@ The production process existed before Git-based workflows were part of my day-to
 
 For software archaeology, these inconsistencies are useful. They show how the application actually evolved under a monthly production deadline.
 
+
+
+### Preserved January 2005 CD image
+
+The only original PC World companion CD from this project that I still have access to was kindly sent to me by **Marius Tomiță from Botoșani, Romania**. It is the **January 2005** edition. Unlike the reconstructed monthly directory trees preserved in this repository, this disc represents a complete original PC World distribution CD, including the actual software payload that accompanied the magazine. Because the complete ISO image is too large to be hosted directly in this GitHub repository, I preserved it separately on the **Internet Archive**:
+
+https://archive.org/details/pcw-01-05
+
+The ISO can be mounted or written back to optical media and provides a complete example of how one of these PC World companion CDs was actually distributed to readers in 2005.
+
+<div align="center">
+
+<img src="" alt="PC World">
+
+</div>
+
 ---
 
 # Historical significance of the project
