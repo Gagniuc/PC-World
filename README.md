@@ -313,6 +313,29 @@ The text visible directly in the July 2005 interface explains this relationship 
 
 <hr>
 
+
+
+### Driver distribution
+
+The interface included a dedicated Drivers section. The January 2005 edition shown below contains two NVIDIA Graphics Driver 66.93 packages, one for Windows NT and one for Windows 2000/XP. The page lists the supported GeForce families and the target operating system for each package. Drivers were already available from manufacturers' websites at the time, but downloading them was not always convenient.
+
+<div align="center">
+
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/PCW_Jan_2005/Screenshot%202026-09-02%20212950.png" alt="PC World January 2005 Drivers section">
+
+</div>
+
+<br>
+
+Many users still relied on dial-up or relatively slow Internet connections, and large driver packages could take a considerable time to obtain. Including commonly needed drivers on the companion CD provided an immediate offline copy and was also useful after reinstalling Windows, when network connectivity or the correct network driver might not yet be available. Nonetheless, driver content was handled separately in the CD structure. The generator created `Drivere.htm` and copied the corresponding driver packages during preparation of the monthly `Matrita`. `Drivere.htm` was also part of the reusable `Geneza` template used by the generator.
+
+<hr>
+
+
+
+
+
+
 ### Integrated HTML presentation and help system
 
 Some parts of the interface were implemented as local HTML documents displayed inside the application. The June 2005 Help page below is one example. It is visually integrated into the PC World skin but provides formatted text, links and scrolling through the embedded browser component. The Help section was not strictly necessary for operating the application, but including a dedicated help function had become part of the unwritten conventions of desktop software at the time. This convention was reinforced indirectly by the design patterns of Windows applications and Microsoft software, where a visible Help command or button was commonly expected even when the interface itself was relatively straightforward.
