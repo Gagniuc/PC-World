@@ -1101,7 +1101,7 @@ The ISO can be mounted or written back to optical media and provides a complete 
 
 <div align="center">
 
-<img src="" alt="PC World">
+<img src="https://github.com/Gagniuc/PC-World/blob/main/img/old/sample/WhatsApp%20Image%202026-09-02%20at%2021.19.08.jpeg" alt="PC World">
 
 </div>
 
